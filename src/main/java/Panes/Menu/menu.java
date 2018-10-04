@@ -1,4 +1,4 @@
-package sample;
+package ScreenControllers;
 
 public class Controller {
 }
