@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="485.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenControllers.Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="485.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Menu.Menu">
    <Pane id="ContextPane" fx:id="MainPane" layoutX="300.0" layoutY="56.0" prefHeight="429.0" prefWidth="485.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="299.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
 
     <Pane id="MenuPane" layoutY="56.0" prefHeight="429.0" prefWidth="287.0" style="-fx-background-color: #fff; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0); -fx-pref-width: 300px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="56.0">
