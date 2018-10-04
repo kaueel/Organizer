@@ -1,4 +1,5 @@
-package ScreenControllers;
+package Screens.Menu;
 
 public class Menu {
+
 }
