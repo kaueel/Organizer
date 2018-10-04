@@ -1,4 +1,4 @@
 package ScreenControllers;
 
-public class Controller {
+public class Menu {
 }
