@@ -10,7 +10,7 @@ class MainScreensController {
         private static MainScreensController instance;
         private int WIDTH = 1300;
         private int HEIGHT = 700;
-        private static HashMap<String, Pane> screensMap = new HashMap<>();
+        private static HashMap<String, Pane> screensMap = new HashMap<String, Pane>();
         private static Scene mainScene;
         private static Parent root;
         {
