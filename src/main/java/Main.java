@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception{
-       MainScreensController mainScreenController = new MainScreensController();
+    public void start(Stage primaryStage){
+       MainScreensController mainScreenController = MainScreensController.getInstance();
        Parent root = mainScreenController.getRoot();
         primaryStage.setTitle("Organizer");
         primaryStage.setScene(mainScreenController.getMainScene());

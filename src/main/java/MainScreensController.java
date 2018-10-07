@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 class MainScreensController {
+        private static MainScreensController instance;
         private int WIDTH = 1300;
         private int HEIGHT = 700;
         private static HashMap<String, Pane> screensMap = new HashMap<>();
@@ -20,8 +21,17 @@ class MainScreensController {
             }
         }
 
+    private MainScreensController() {
+    }
 
-        //Avoids rebiulding of already used screens, saving bult panes in a hashMap
+    static synchronized MainScreensController getInstance(){
+            if (instance == null){
+                instance = new MainScreensController();
+            }
+            return instance;
+    }
+
+    //Avoids rebiulding of already used screens, saving bult panes in a hashMap
         private Pane getScreenFromMap(String fxmlPath){
                 Pane pane = screensMap.get(fxmlPath);
             if (pane == null){
