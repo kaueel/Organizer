@@ -4,19 +4,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
 
+//Obs: "Menu" is the root Pane of the application and it's first level must be a BorderPane.
+
+public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/Screens/Menu/menu.fxml"));
+    public void start(Stage primaryStage){
+       MainScreensController mainScreenController = MainScreensController.getInstance();
+       Parent root = mainScreenController.getRoot();
         primaryStage.setTitle("Organizer");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(mainScreenController.getMainScene());
         primaryStage.setMaximized(true);
         primaryStage.show();
-
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }

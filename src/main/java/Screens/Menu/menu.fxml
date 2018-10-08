@@ -4,8 +4,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="489.0" prefWidth="847.0" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Menu.Menu">
-   <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <Pane prefHeight="444.0" prefWidth="298.0" styleClass="background-white,whiteframe,menu" BorderPane.alignment="CENTER" />
@@ -19,5 +17,4 @@
          <center>
             <Pane prefHeight="430.0" prefWidth="547.0" BorderPane.alignment="CENTER" />
          </center></BorderPane>
-   </children>
-</AnchorPane>
+
