@@ -1,6 +1,5 @@
 import Controllers.MainScreensController;
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -11,7 +10,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage){
        MainScreensController mainScreenController = MainScreensController.getInstance();
-       Parent root = mainScreenController.getRoot();
         Font.loadFont(Main.class.getResource("Screens/Toobar/fontLogo.ttf").toExternalForm(), 12);
         primaryStage.setTitle("Organizer");
         primaryStage.setScene(mainScreenController.getMainScene());

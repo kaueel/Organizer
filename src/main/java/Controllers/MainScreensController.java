@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
@@ -16,14 +17,14 @@ public class MainScreensController extends Observable {
     private int WIDTH = 1300;
     private int HEIGHT = 700;
     private static HashMap<String, Pane> screensMap = new HashMap<>();
+    private static HashMap<String, String> titlesMap = new HashMap<>();
+    private String currentScreenTitle;
+
     private static Scene mainScene;
-    private ScreensMetaData screensMetaData = new ScreensMetaData();
 
-    public String getTitle() {
-        return title;
+    private MainScreensController() {
+        titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
     }
-
-    private String title;
     private static Parent root;
     {
         try {
@@ -33,7 +34,8 @@ public class MainScreensController extends Observable {
         }
     }
 
-    private MainScreensController() {
+    public String getTitle() {
+        return currentScreenTitle;
     }
 
     public static synchronized MainScreensController getInstance() {
@@ -58,10 +60,6 @@ public class MainScreensController extends Observable {
         return pane;
     }
 
-    public Parent getRoot() {
-        return root;
-    }
-
     public Scene getMainScene() {
         if (mainScene == null) {
             mainScene = new Scene(root, WIDTH, HEIGHT);
@@ -71,12 +69,20 @@ public class MainScreensController extends Observable {
 
     public void showNewCenterScreen(String fxmlPath) {
         ((BorderPane) root).setCenter(createScreen(fxmlPath));
-        this.title = screensMetaData.getTitle(fxmlPath);
         notifyObservers();
     }
 
     private Node createScreen(String fxmlPath) {
         Node node = getScreenFromMap(fxmlPath);
+        if (titlesMap.get(fxmlPath) == null) {
+            currentScreenTitle = "Favor adicione um title a essa tela no constructor da main Screens controller";
+
+        } else {
+            currentScreenTitle = titlesMap.get(fxmlPath);
+        }
+
+
+        notifyObservers();
         if(!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
             throw  new RuntimeException("You should use AnchorPane as the root of your screen");
         return node;
