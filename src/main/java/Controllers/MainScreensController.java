@@ -76,15 +76,13 @@ public class MainScreensController extends Observable {
         Node node = getScreenFromMap(fxmlPath);
         if (titlesMap.get(fxmlPath) == null) {
             currentScreenTitle = "Favor adicione um title a essa tela no constructor da main Screens controller";
-
         } else {
             currentScreenTitle = titlesMap.get(fxmlPath);
         }
-
-
         notifyObservers();
         if(!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
             throw  new RuntimeException("You should use AnchorPane as the root of your screen");
+
         return node;
     }
 

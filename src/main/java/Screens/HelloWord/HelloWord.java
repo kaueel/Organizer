@@ -1,14 +1,15 @@
 package Screens.HelloWord;
 
-import Controllers.MainScreensController;
+import Screens.AbstractScreen;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
-public class HelloWord {
-
+public class HelloWord extends AbstractScreen {
+    int requiredAcesslevel;
     @FXML
     private void initialize() {
-        
+        requiredAcesslevel = 0;
     }
+
+
 
 }

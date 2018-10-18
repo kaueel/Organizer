@@ -1,6 +1,7 @@
 package Screens.Menu;
 
 import Controllers.MainScreensController;
+import Screens.AbstractScreen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Menu implements Observer , EventHandler<MouseEvent> {
+public class Menu extends AbstractScreen implements Observer, EventHandler<MouseEvent> {
 
     @Override
     public void update(Observable o, Object arg) {
