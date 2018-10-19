@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Menu implements Observer , EventHandler<MouseEvent> {
+public class Menu implements Observer  {
 
     @Override
     public void update(Observable o, Object arg) {
@@ -36,29 +36,14 @@ public class Menu implements Observer , EventHandler<MouseEvent> {
     @FXML
     private void initialize() {
         mainScreensController = MainScreensController.getInstance();
-        itemClient.setOnMouseEntered(this);
-        itemLowSuit.setOnMouseEntered(this);
-        itemEvent.setOnMouseEntered(this);
-        itemEmployee.setOnMouseEntered(this);
-        itemTemplate.setOnMouseEntered(this);
 
-        itemClient.setOnMouseExited(this);
-        itemLowSuit.setOnMouseExited(this);
-        itemEvent.setOnMouseExited(this);
-        itemEmployee.setOnMouseExited(this);
-        itemTemplate.setOnMouseExited(this);
-
+        itemTemplate.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mainScreensController.showNewCenterScreen("/Screens/Template/template.fxml");
+            }
+        });
     }
 
-    @Override
-    public void handle(MouseEvent event) {
 
-        if(event.getEventType().toString().equals("MOUSE_ENTERED")){
-            ((Label)event.getSource()).setStyle("-fx-background-color: #e2e2e2;");
-        }
-        else if(event.getEventType().toString().equals("MOUSE_EXITED"))
-        {
-            ((Label)event.getSource()).setStyle("-fx-background-color: transparent");
-        }
-    }
 }

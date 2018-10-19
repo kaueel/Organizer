@@ -1,0 +1,21 @@
+.top-toolbar,.bottom-toolbar{
+    -fx-background-color: #ffffff;
+    -fx-padding: 10 0 0 10;
+}
+
+.bottom-toolbar{
+
+    -fx-border-color: #bbbbbb;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10 0 10 10;
+
+}
+
+ToggleButton ,  ComboBox,ColorPicker,.html-editor-copy,.html-editor-paste,.html-editor-cut,.html-editor-outdent,.html-editor-indent,.html-editor-hr{
+    -fx-background-color: #ffffff;
+    -fx-cursor: HAND;
+}
+
+ToggleButton:hover ,  ComboBox:hover,ColorPicker:hover,.html-editor-copy:hover,.html-editor-paste:hover,.html-editor-cut:hover,.html-editor-outdent:hover,.html-editor-indent:hover,.html-editor-hr:hover{
+    -fx-background-color: #eeeeee;
+}

@@ -12,7 +12,6 @@ public class Main extends Application {
     public void start(Stage primaryStage){
        MainScreensController mainScreenController = MainScreensController.getInstance();
        Parent root = mainScreenController.getRoot();
-        Font.loadFont(Main.class.getResource("Screens/Toobar/fontLogo.ttf").toExternalForm(), 12);
         primaryStage.setTitle("Organizer");
         primaryStage.setScene(mainScreenController.getMainScene());
         primaryStage.setMaximized(true);
