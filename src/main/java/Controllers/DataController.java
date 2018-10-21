@@ -30,21 +30,38 @@ public class DataController {
     public void saveObject(Object data) {
         try {
             Session session = sessionFactory.openSession();
-            session.persist(data);
             Transaction transaction = session.beginTransaction();
-            try {
-                transaction.commit();
-            } catch (HibernateException e) {
-                if (transaction != null) {
-                    transaction.rollback();
-                }
-                e.printStackTrace();
-            }
+            session.persist(data);
+            executeTransaction(transaction);
             session.close();
         } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
 
+    public Object getObjectById(Class data,  Integer id) {
+        Object retrievedObject = null;
+        try {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+            retrievedObject = session.get(data, id);
+            executeTransaction(transaction);
+            session.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return retrievedObject;
+    }
 
+    private void executeTransaction(Transaction transaction) {
+        try {
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+    }
 }
+

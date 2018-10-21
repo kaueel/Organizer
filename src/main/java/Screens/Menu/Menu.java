@@ -55,6 +55,8 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
         country.setCountry("Teste2");
         DataController mDataController = DataController.getInstance();
         mDataController.saveObject(country);
+        Country retrievedCountry = (Country) mDataController.getObjectById(Country.class, 1);
+        System.out.println(retrievedCountry.getCountry());
     }
 
 
