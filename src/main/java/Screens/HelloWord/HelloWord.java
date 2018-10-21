@@ -16,26 +16,5 @@ public class HelloWord extends Screen {
     }
 
 
-    @FXML
-    public void DataHowToo() {
-        Country country = new Country();
-        country.setCountry("Teste2");
-
-        //get data controller
-        DataController mDataController = DataController.getInstance();
-        //save a new object
-        mDataController.saveObject(country);
-        //get a specific object
-        Country retrievedCountry = (Country) mDataController.getObjectById(Country.class, 1);
-        System.out.println(retrievedCountry.getCountry());
-
-        //get list with all entries of an object
-        List<Country> countries = (List<Country>) mDataController.getAllObjectsOfType(Country.class);
-
-        for (Country acountry : countries) {
-            System.out.println(acountry.getCountry());
-        }
-    }
-
 
 }

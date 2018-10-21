@@ -95,7 +95,7 @@
                   <PasswordField fx:id="EmployeePasswordField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Button fx:id="btnSaveEmployee" mnemonicParsing="false" onAction="#SaveEmployee" onMouseClicked="#SaveEmployee" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+            <Button fx:id="btnSaveEmployee" mnemonicParsing="false" onAction="#SaveEmployee" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="40.0" />
                </GridPane.margin>

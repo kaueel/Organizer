@@ -48,9 +48,9 @@ public class EmployeeCtl {
                 employee.setCpf(EmployeeCpfField.getText());
                 employee.setName(EmployeeNameField.getText());
                 employee.setLogin(EmployeeUserNameField.getText());
-                employee.setCargo(EmployeePositionField.getText());
-                employee.setSalario(Integer.parseInt(EmployeeSalaryField.getText()));
                 employee.setToken(EmployeePasswordField.getText());
+                employee.setAccessLevel(1);
+
 
         mDataController.saveObject(employee);
     }

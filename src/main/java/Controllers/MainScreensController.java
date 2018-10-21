@@ -35,7 +35,7 @@ public class MainScreensController extends Observable {
         titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
         titlesMap.put("/Screens/Employees/employees.fxml", "Funcionários");
         titlesMap.put("/Screens/Employees/employee.fxml", "Funcionário");
-        ;
+
     }
 
     public static synchronized MainScreensController getInstance() {

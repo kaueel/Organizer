@@ -31,9 +31,9 @@
             </Button>
             <TableView fx:id="employeesTable" GridPane.columnSpan="5" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="295.0" text="Name" />
-                <TableColumn prefWidth="157.0" text="Phone" />
-                  <TableColumn minWidth="0.0" prefWidth="147.0" text="Position" />
+                <TableColumn fx:id="rowEmployeeName" prefWidth="295.0" text="Name" />
+                <TableColumn fx:id="rowEmployeePhone" prefWidth="157.0" text="Phone" />
+                  <TableColumn fx:id="rowEmployeeCargo" minWidth="0.0" prefWidth="147.0" text="Position" />
               </columns>
             </TableView>
          </children>

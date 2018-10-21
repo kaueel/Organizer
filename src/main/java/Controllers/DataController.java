@@ -1,5 +1,9 @@
 package Controllers;
 
+import com.sun.javafx.collections.ObservableListWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -83,7 +87,7 @@ public class DataController {
         return retrievedObject;
     }
 
-    public List<?> getAllObjectsOfType(Class data) {
+    public ObservableList<Object> getAllObjectsOfType(Class data) {
         List<?> retrievedObjects = null;
         try {
             Session session = sessionFactory.openSession();
@@ -99,7 +103,12 @@ public class DataController {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return retrievedObjects;
+        ObservableList<Object> list = FXCollections.observableArrayList();
+        if (retrievedObjects != null) {
+            list.addAll(retrievedObjects);
+        }
+
+        return list;
     }
 
     private void executeTransaction(Transaction transaction) {
