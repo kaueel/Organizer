@@ -18,9 +18,8 @@ public class ActionPlanLawSuit {
     }
 
 
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getThis_id() {
         return this_id;
     }

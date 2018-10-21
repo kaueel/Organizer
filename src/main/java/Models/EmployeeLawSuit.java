@@ -4,15 +4,15 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Employee_LawSuit", schema = "organizer_ft", catalog = "")
+@Table(name = "Employee_LawSuit", schema = "organizer_ft")
 public class EmployeeLawSuit {
     private String cpf;
     private Employee employeeByCpf;
     private Integer this_id;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false, length = 11)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     public Integer getId() {
         return this_id;
     }

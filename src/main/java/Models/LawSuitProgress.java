@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "LawSuit_Progress", schema = "organizer_ft", catalog = "")
+@Table(name = "LawSuit_Progress", schema = "organizer_ft")
 public class LawSuitProgress {
     private Integer id;
     private String description;
@@ -13,7 +13,7 @@ public class LawSuitProgress {
     private LawSuit lawSuitByLawSuitId;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     public Integer getId() {
         return id;

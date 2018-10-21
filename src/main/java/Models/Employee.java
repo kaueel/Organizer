@@ -13,8 +13,8 @@ public class Employee {
     private Integer id;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     public Integer getId() {
         return id;
     }

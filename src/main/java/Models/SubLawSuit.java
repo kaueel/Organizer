@@ -9,7 +9,7 @@ public class SubLawSuit {
     private LawSuit lawSuitByLawSuitId;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Number", nullable = false)
     public Integer getNumber() {
         return number;

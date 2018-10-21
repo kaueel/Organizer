@@ -1,14 +1,10 @@
 package Controllers;
 
-import Models.Country;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
-import java.util.ArrayList;
 
 public class DataController {
     private static SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -33,13 +29,13 @@ public class DataController {
 
     public void saveObject(Object data) {
         try {
-            Session session= sessionFactory.openSession();
+            Session session = sessionFactory.openSession();
             session.persist(data);
             Transaction transaction = session.beginTransaction();
-            try{
+            try {
                 transaction.commit();
-            }catch (HibernateException e){
-                if (transaction != null){
+            } catch (HibernateException e) {
+                if (transaction != null) {
                     transaction.rollback();
                 }
                 e.printStackTrace();

@@ -14,11 +14,6 @@ import java.util.Observer;
 
 public class Menu extends AbstractScreen implements Observer, EventHandler<MouseEvent> {
 
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
-
     @FXML
     private Label itemClient;
     @FXML
@@ -29,8 +24,12 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
     private Label itemEmployee;
     @FXML
     private Label itemTemplate;
-
     private MainScreensController mainScreensController;
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 
     @FXML
     private void initialize() {
@@ -51,9 +50,9 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
 
 
     @FXML
-    public void test(){
+    public void test() {
         Country country = new Country();
-        country.setCountry("Brazil");
+        country.setCountry("Teste2");
         DataController mDataController = DataController.getInstance();
         mDataController.saveObject(country);
     }
@@ -62,12 +61,10 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
     @Override
     public void handle(MouseEvent event) {
 
-        if(event.getEventType().toString().equals("MOUSE_ENTERED")){
-            ((Label)event.getSource()).setStyle("-fx-background-color: #e2e2e2;");
-        }
-        else if(event.getEventType().toString().equals("MOUSE_EXITED"))
-        {
-            ((Label)event.getSource()).setStyle("-fx-background-color: transparent");
+        if (event.getEventType().toString().equals("MOUSE_ENTERED")) {
+            ((Label) event.getSource()).setStyle("-fx-background-color: #e2e2e2;");
+        } else if (event.getEventType().toString().equals("MOUSE_EXITED")) {
+            ((Label) event.getSource()).setStyle("-fx-background-color: transparent");
         }
     }
 }
