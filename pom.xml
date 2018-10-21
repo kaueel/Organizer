@@ -14,6 +14,28 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.13.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.3.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.5.6-Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -26,18 +48,18 @@
             </plugin>
         </plugins>
         <resources>
-                <resource>
-                    <filtering>
-                        false
-                    </filtering>
-                    <directory>
-                        src/main/java
-                    </directory>
-                    <includes>
-                        <include>
-                            **/*
-                        </include>
-                    </includes>
-                </resource></resources>
+            <resource>
+                <filtering>
+                    false
+                </filtering>
+                <directory>
+                    src/main/java
+                </directory>
+                <includes>
+                    <include>
+                        **/*
+                    </include>
+                </includes>
+            </resource></resources>
     </build>
 </project>

@@ -1,6 +1,8 @@
 package Screens.Menu;
 
+import Controllers.DataController;
 import Controllers.MainScreensController;
+import Models.Country;
 import Screens.AbstractScreen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -46,6 +48,16 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
         itemTemplate.setOnMouseExited(this);
 
     }
+
+
+    @FXML
+    public void test(){
+        Country country = new Country();
+        country.setCountry("Brazil");
+        DataController mDataController = DataController.getInstance();
+        mDataController.saveObject(country);
+    }
+
 
     @Override
     public void handle(MouseEvent event) {

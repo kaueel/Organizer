@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class MeetingStatus {
+public class LawSuitEventStatus {
     private Integer id;
     private String description;
 
@@ -33,7 +33,7 @@ public class MeetingStatus {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MeetingStatus that = (MeetingStatus) o;
+        LawSuitEventStatus that = (LawSuitEventStatus) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(description, that.description);
     }

@@ -5,13 +5,12 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-public class Meeting {
+public class LawSuitEvent {
     private Integer id;
     private Timestamp startTime;
-    private String subject;
+    private Timestamp endTime;
     private String description;
     private LawSuit lawSuitByLawSuitId;
-    private Client clientByClientId;
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -35,17 +34,17 @@ public class Meeting {
     }
 
     @Basic
-    @Column(name = "Subject", nullable = false, length = 2000)
-    public String getSubject() {
-        return subject;
+    @Column(name = "EndTime", nullable = false)
+    public Timestamp getEndTime() {
+        return endTime;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setEndTime(Timestamp endTime) {
+        this.endTime = endTime;
     }
 
     @Basic
-    @Column(name = "Description", nullable = true, length = 10000)
+    @Column(name = "Description", nullable = false, length = 10000)
     public String getDescription() {
         return description;
     }
@@ -58,16 +57,16 @@ public class Meeting {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Meeting meeting = (Meeting) o;
-        return Objects.equals(id, meeting.id) &&
-                Objects.equals(startTime, meeting.startTime) &&
-                Objects.equals(subject, meeting.subject) &&
-                Objects.equals(description, meeting.description);
+        LawSuitEvent that = (LawSuitEvent) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(startTime, that.startTime) &&
+                Objects.equals(endTime, that.endTime) &&
+                Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startTime, subject, description);
+        return Objects.hash(id, startTime, endTime, description);
     }
 
     @ManyToOne
@@ -78,15 +77,5 @@ public class Meeting {
 
     public void setLawSuitByLawSuitId(LawSuit lawSuitByLawSuitId) {
         this.lawSuitByLawSuitId = lawSuitByLawSuitId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "ClientID", referencedColumnName = "ID", nullable = false)
-    public Client getClientByClientId() {
-        return clientByClientId;
-    }
-
-    public void setClientByClientId(Client clientByClientId) {
-        this.clientByClientId = clientByClientId;
     }
 }
