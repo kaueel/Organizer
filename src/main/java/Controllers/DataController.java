@@ -76,6 +76,7 @@ public class DataController {
     public Object getObjectById(Class data,  Integer id) {
         Object retrievedObject = null;
         try {
+
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
             retrievedObject = session.get(data, id);

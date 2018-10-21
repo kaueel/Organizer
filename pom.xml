@@ -20,6 +20,11 @@
             <version>8.0.12</version>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>connector-java</artifactId>
+
+        </dependency>
+        <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.13.Final</version>
