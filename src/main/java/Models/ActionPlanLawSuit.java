@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class ActionPlanLawSuit {
     private ActionPlan actionPlanByActionPlanId;
+    private Integer this_id;
 
     @ManyToOne
     @JoinColumn(name = "ActionPlanID", referencedColumnName = "ID", nullable = false)
@@ -16,15 +17,15 @@ public class ActionPlanLawSuit {
         this.actionPlanByActionPlanId = actionPlanByActionPlanId;
     }
 
-    private String this_id;
+
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    public String getThis_id() {
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    public Integer getThis_id() {
         return this_id;
     }
 
-    public void setThis_id(String this_id) {
+    public void setThis_id(Integer this_id) {
         this.this_id = this_id;
     }
 }

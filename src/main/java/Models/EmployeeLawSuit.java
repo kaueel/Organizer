@@ -8,9 +8,19 @@ import java.util.Objects;
 public class EmployeeLawSuit {
     private String cpf;
     private Employee employeeByCpf;
+    private Integer this_id;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false, length = 11)
+    public Integer getId() {
+        return this_id;
+    }
+
+    public void setId(Integer id) {
+        this.this_id = id;
+    }
+
     @Column(name = "CPF", nullable = false, length = 11)
     public String getCpf() {
         return cpf;
@@ -34,7 +44,7 @@ public class EmployeeLawSuit {
     }
 
     @OneToOne
-    @JoinColumn(name = "CPF", referencedColumnName = "CPF", nullable = false)
+    @JoinColumn(name = "CPF", referencedColumnName = "CPF", nullable = false, insertable = false, updatable = false)
     public Employee getEmployeeByCpf() {
         return employeeByCpf;
     }

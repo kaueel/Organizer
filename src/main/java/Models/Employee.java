@@ -10,9 +10,19 @@ public class Employee {
     private Integer accessLevel;
     private String login;
     private String token;
+    private Integer id;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false)
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Column(name = "CPF", nullable = false, length = 11)
     public String getCpf() {
         return cpf;
