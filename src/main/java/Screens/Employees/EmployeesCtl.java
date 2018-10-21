@@ -32,7 +32,7 @@ public class EmployeesCtl extends Screen {
 
     @FXML
     void callEmployeeScreen(){
-     //   mainScreensController.showNewLeftScreen("/Screens/Employee/Employee.fxml");
+     mainScreensController.showNewMainScreen("/Screens/Employee/Employee.fxml");
 
     }
 }

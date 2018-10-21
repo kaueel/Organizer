@@ -10,6 +10,8 @@ public class Employee {
     private Integer accessLevel;
     private String login;
     private String token;
+    private String cargo;
+    private Integer salario;
     private Integer id;
 
     @Id
@@ -33,6 +35,16 @@ public class Employee {
     }
 
     @Basic
+    @Column(name = "Salario", nullable = false)
+    public Integer getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Integer salario) {
+        this.salario = salario;
+    }
+
+    @Basic
     @Column(name = "Name", nullable = false, length = 200)
     public String getName() {
         return name;
@@ -40,6 +52,17 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Basic
+    @Column(name = "Cargo", nullable = false, length = 200)
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     @Basic
