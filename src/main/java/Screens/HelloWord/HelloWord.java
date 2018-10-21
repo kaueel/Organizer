@@ -2,12 +2,12 @@ package Screens.HelloWord;
 
 import Controllers.DataController;
 import Models.Country;
-import Screens.AbstractScreen;
+import Controllers.Screen;
 import javafx.fxml.FXML;
 
 import java.util.List;
 
-public class HelloWord extends AbstractScreen {
+public class HelloWord extends Screen {
     int requiredAcesslevel;
 
     @FXML

@@ -1,13 +1,13 @@
 package Screens.Toobar;
 
 import Controllers.MainScreensController;
-import Screens.AbstractScreen;
+import Controllers.Screen;
 import javafx.fxml.FXML;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class Toobar extends AbstractScreen implements Observer {
+public class Toobar extends Screen implements Observer {
     private String centerScreenTitle;
     private MainScreensController mainScreensController;
 

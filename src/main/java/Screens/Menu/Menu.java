@@ -3,8 +3,7 @@ package Screens.Menu;
 import Controllers.DataController;
 import Controllers.MainScreensController;
 import Models.Country;
-import Screens.AbstractScreen;
-import javafx.collections.ObservableList;
+import Controllers.Screen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Menu extends AbstractScreen implements Observer, EventHandler<MouseEvent> {
+public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
 
     @FXML
     private Label itemClient;
@@ -49,27 +48,10 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
         itemTemplate.setOnMouseExited(this);
 
     }
-
-
+    
     @FXML
-    public void test() {
-        Country country = new Country();
-        country.setCountry("Teste2");
-
-        //get data controller
-        DataController mDataController = DataController.getInstance();
-        //save a new object
-        mDataController.saveObject(country);
-        //get a specific object
-        Country retrievedCountry = (Country) mDataController.getObjectById(Country.class, 1);
-        System.out.println(retrievedCountry.getCountry());
-
-        //get list with all entries of an object
-       List<Country> countries = (List<Country>) mDataController.getAllObjectsOfType(Country.class);
-
-        for (Country acountry : countries) {
-            System.out.println(acountry.getCountry());
-        }
+    void callEmployeeScreen(){
+        mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
     }
 
 

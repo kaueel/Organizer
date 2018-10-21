@@ -6,7 +6,7 @@
             stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.172-ea"
             fx:controller="Screens.Menu.Menu">
     <children>
-        <Label fx:id="itemClient" layoutX="14.0" layoutY="14.0" onMouseClicked="#test" prefHeight="27.0"
+        <Label fx:id="itemClient" layoutX="14.0" layoutY="14.0" prefHeight="27.0"
                prefWidth="245.0" styleClass="menuItem" text="Cliente" textFill="#777777" AnchorPane.leftAnchor="15.0"
                AnchorPane.rightAnchor="15.0"/>
         <Label fx:id="itemLowSuit" layoutX="15.0" layoutY="51.0" prefHeight="27.0" prefWidth="245.0"
@@ -14,7 +14,7 @@
         <Label fx:id="itemEvent" layoutX="16.0" layoutY="87.0" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem"
                text="Eventos" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0"/>
         <Label fx:id="itemEmployee" layoutX="15.0" layoutY="124.0" prefHeight="27.0" prefWidth="245.0"
-               styleClass="menuItem" text="Funcionario" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"/>
+               styleClass="menuItem" text="Funcionario" AnchorPane.leftAnchor="15.0" onMouseClicked="#callEmployeeScreen" AnchorPane.rightAnchor="15.0"/>
         <Label fx:id="itemTemplate" layoutX="15.0" layoutY="161.0" prefHeight="27.0" prefWidth="245.0"
                styleClass="menuItem" text="Templates" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"/>
     </children>

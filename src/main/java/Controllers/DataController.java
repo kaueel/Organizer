@@ -1,6 +1,5 @@
 package Controllers;
 
-import Models.Country;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
