@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Employee.EmployeeCtl">
+<AnchorPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Employee.EmployeeCtl">
    <children>
       <GridPane style="-fx-background-color: fff;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
         <columnConstraints>
@@ -93,6 +93,15 @@
                   </Label>
                   <TextField fx:id="EmployeeUserNameField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <PasswordField fx:id="EmployeePasswordField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextField fx:id="EmployeePhoneField" GridPane.columnIndex="3" />
+                  <Label text="Phone" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
             <Button fx:id="btnSaveEmployee" mnemonicParsing="false" onAction="#SaveEmployee" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT">

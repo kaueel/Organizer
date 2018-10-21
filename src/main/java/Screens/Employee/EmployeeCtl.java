@@ -36,6 +36,9 @@ public class EmployeeCtl {
     private TextField EmployeeSalaryField;
 
     @FXML
+    private TextField EmployeePhoneField;
+
+    @FXML
     private TextField EmployeeUserNameField;
 
     @FXML
@@ -49,6 +52,9 @@ public class EmployeeCtl {
                 employee.setName(EmployeeNameField.getText());
                 employee.setLogin(EmployeeUserNameField.getText());
                 employee.setToken(EmployeePasswordField.getText());
+                employee.setPosition(EmployeePositionField.getText());
+                employee.setSalary(EmployeeSalaryField.getText());
+                employee.setPhone(EmployeePhoneField.getText());
                 employee.setAccessLevel(1);
 
 

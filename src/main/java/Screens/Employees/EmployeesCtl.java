@@ -51,8 +51,8 @@ public class EmployeesCtl extends Screen {
 
 
         rowEmployeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("login"));
-        rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("cargo"));
+        rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("position"));
 
         employeesTable.setItems(employees);
         System.out.println("teste");

@@ -11,6 +11,7 @@ public class Employee {
     private String login;
     private String token;
     private Integer id;
+    private String salary;
     private String phone;
     private String position;
 
@@ -49,15 +50,24 @@ public class Employee {
     public String getPhone() {
         return phone;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
     @Basic
+    @Column(name = "Salary", nullable = false, length = 200)
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    @Basic
     @Column(name = "Position", nullable = false, length = 200)
     public String getPosition() {
-        return phone;
+        return position;
     }
 
     public void setPosition(String position) {
