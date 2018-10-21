@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -53,10 +54,21 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
     public void test() {
         Country country = new Country();
         country.setCountry("Teste2");
+
+        //get data controller
         DataController mDataController = DataController.getInstance();
+        //save a new object
         mDataController.saveObject(country);
+        //get a specific object
         Country retrievedCountry = (Country) mDataController.getObjectById(Country.class, 1);
         System.out.println(retrievedCountry.getCountry());
+
+        //get list with all entries of an object
+        List<Country> countries = (List<Country>) mDataController.getAllObjectsOfType(Country.class);
+
+        for (Country acountry : countries) {
+            System.out.println(acountry.getCountry());
+        }
     }
 
 
