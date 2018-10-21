@@ -46,6 +46,30 @@ public class DataController {
         }
     }
 
+    public void deleteObject(Object data) {
+        try {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+            session.delete(data);
+            executeTransaction(transaction);
+            session.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public void updateObject(Object data) {
+        try {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+            session.update(data);
+            executeTransaction(transaction);
+            session.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
     public Object getObjectById(Class data,  Integer id) {
         Object retrievedObject = null;
         try {

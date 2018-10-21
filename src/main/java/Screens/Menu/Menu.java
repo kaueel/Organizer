@@ -4,6 +4,7 @@ import Controllers.DataController;
 import Controllers.MainScreensController;
 import Models.Country;
 import Screens.AbstractScreen;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -64,7 +65,7 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
         System.out.println(retrievedCountry.getCountry());
 
         //get list with all entries of an object
-        List<Country> countries = (List<Country>) mDataController.getAllObjectsOfType(Country.class);
+       List<Country> countries = (List<Country>) mDataController.getAllObjectsOfType(Country.class);
 
         for (Country acountry : countries) {
             System.out.println(acountry.getCountry());
