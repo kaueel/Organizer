@@ -48,8 +48,7 @@ public class MainScreensController extends Observable {
 
     private Pane getScreenFromMap(String fxmlPath) {
         Pane pane = null;
-
-            FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
+        FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
             try {
                 pane = loader.load();
             } catch (IOException e) {

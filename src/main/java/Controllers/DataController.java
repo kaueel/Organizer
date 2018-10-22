@@ -20,11 +20,9 @@ public class DataController {
     private static SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     private static DataController instance;
 
-
     private DataController() {
 
     }
-
 
     public static SessionFactory getSessionFactory() {
         return sessionFactory;

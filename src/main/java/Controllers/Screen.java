@@ -1,4 +1,4 @@
 package Controllers;
 
-public class Screen {
+public interface Screen {
 }
