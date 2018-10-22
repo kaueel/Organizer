@@ -11,6 +11,9 @@ public class Employee {
     private String login;
     private String token;
     private Integer id;
+    private String salary;
+    private String phone;
+    private String position;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +44,38 @@ public class Employee {
     public void setName(String name) {
         this.name = name;
     }
+
+      @Basic
+    @Column(name = "Phone", nullable = false, length = 200)
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Basic
+    @Column(name = "Salary", nullable = false, length = 200)
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    @Basic
+    @Column(name = "Position", nullable = false, length = 200)
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+
+
 
     @Basic
     @Column(name = "AccessLevel", nullable = false)

@@ -14,14 +14,12 @@ import java.util.Observable;
 
 public class MainScreensController extends Observable {
     private static MainScreensController instance;
-    private static HashMap<String, Pane> screensMap = new HashMap<>();
     private static HashMap<String, String> titlesMap = new HashMap<>();
     private static Scene mainScene;
     private static Parent root;
     private int WIDTH = 1300;
     private int HEIGHT = 700;
     private String currentScreenTitle;
-
     {
         try {
             root = FXMLLoader.load(getClass().getResource("/Screens/MainContainer/mainContainer.fxml"));
@@ -30,8 +28,11 @@ public class MainScreensController extends Observable {
         }
     }
 
+
     private MainScreensController() {
         titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
+        titlesMap.put("/Screens/Employees/employees.fxml", "Funcionários");
+        titlesMap.put("/Screens/Employees/employee.fxml", "Funcionário");
     }
 
     public static synchronized MainScreensController getInstance() {
@@ -45,18 +46,14 @@ public class MainScreensController extends Observable {
         return currentScreenTitle;
     }
 
-    //Avoids rebiulding of already used screens, saving bult panes in a hashMap
     private Pane getScreenFromMap(String fxmlPath) {
-        Pane pane = screensMap.get(fxmlPath);
-        if (pane == null) {
-            FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
+        Pane pane = null;
+        FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
             try {
                 pane = loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            screensMap.put(fxmlPath, pane);
-        }
         return pane;
     }
 
@@ -67,7 +64,7 @@ public class MainScreensController extends Observable {
         return mainScene;
     }
 
-    public void showNewCenterScreen(String fxmlPath) {
+    public void showNewMainScreen(String fxmlPath) {
         ((BorderPane) root).setCenter(createScreen(fxmlPath));
         notifyObservers();
     }
@@ -82,7 +79,6 @@ public class MainScreensController extends Observable {
         notifyObservers();
         if (!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
             throw new RuntimeException("You should use AnchorPane as the root of your screen");
-
         return node;
     }
 
@@ -97,6 +93,4 @@ public class MainScreensController extends Observable {
     public void showNewLeftScreen(String fxmlPath) {
         ((BorderPane) root).setLeft(createScreen(fxmlPath));
     }
-
-
 }

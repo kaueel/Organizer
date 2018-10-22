@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Employee.EmployeeCtl">
+   <children>
+      <GridPane style="-fx-background-color: fff;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1094.0" minWidth="10.0" prefWidth="499.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="899.0" minWidth="10.0" prefWidth="837.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="463.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="640.0" minHeight="10.0" prefHeight="639.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane prefHeight="636.0" prefWidth="1241.0" style="-fx-background-color: fff;" GridPane.columnSpan="2" GridPane.rowIndex="1">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="529.0" minWidth="10.0" prefWidth="149.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1040.0" minWidth="10.0" prefWidth="485.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="846.0" minWidth="0.0" prefWidth="179.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="846.0" minWidth="10.0" prefWidth="414.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="846.0" minWidth="10.0" prefWidth="185.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="CPF" textFill="#6f6f6f" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Nome" textFill="#6f6f6f" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Cargo" textFill="#6f6f6f" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label text="Salário" textFill="#6f6f6f" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="EmployeeCpfField" GridPane.columnIndex="1" />
+                  <TextField fx:id="EmployeeNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="EmployeePositionField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="EmployeeSalaryField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label alignment="TOP_LEFT" text="Usuario:" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" text="Senha:" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="EmployeeUserNameField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="EmployeePasswordField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextField fx:id="EmployeePhoneField" GridPane.columnIndex="3" />
+                  <Label text="Phone" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
+            <Button fx:id="btnSaveEmployee" mnemonicParsing="false" onAction="#SaveEmployee" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="40.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
