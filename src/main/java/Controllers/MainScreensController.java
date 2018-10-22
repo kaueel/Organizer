@@ -14,18 +14,14 @@ import java.util.Observable;
 
 public class MainScreensController extends Observable {
     private static MainScreensController instance;
-    private int WIDTH = 1300;
-    private int HEIGHT = 700;
     private static HashMap<String, Pane> screensMap = new HashMap<>();
     private static HashMap<String, String> titlesMap = new HashMap<>();
+    private static Scene mainScene;
+    private static Parent root;
+    private int WIDTH = 1300;
+    private int HEIGHT = 700;
     private String currentScreenTitle;
 
-    private static Scene mainScene;
-
-    private MainScreensController() {
-        titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
-    }
-    private static Parent root;
     {
         try {
             root = FXMLLoader.load(getClass().getResource("/Screens/MainContainer/mainContainer.fxml"));
@@ -34,8 +30,8 @@ public class MainScreensController extends Observable {
         }
     }
 
-    public String getTitle() {
-        return currentScreenTitle;
+    private MainScreensController() {
+        titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
     }
 
     public static synchronized MainScreensController getInstance() {
@@ -43,6 +39,10 @@ public class MainScreensController extends Observable {
             instance = new MainScreensController();
         }
         return instance;
+    }
+
+    public String getTitle() {
+        return currentScreenTitle;
     }
 
     //Avoids rebiulding of already used screens, saving bult panes in a hashMap
@@ -80,8 +80,8 @@ public class MainScreensController extends Observable {
             currentScreenTitle = titlesMap.get(fxmlPath);
         }
         notifyObservers();
-        if(!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
-            throw  new RuntimeException("You should use AnchorPane as the root of your screen");
+        if (!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
+            throw new RuntimeException("You should use AnchorPane as the root of your screen");
 
         return node;
     }

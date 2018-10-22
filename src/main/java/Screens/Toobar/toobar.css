@@ -1,7 +1,7 @@
-.toolbar{
+.toolbar {
     -fx-background-color: #204370;
 }
 
-.whiteframe{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0)
+.whiteframe {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 20, 0, 0, 0)
 }

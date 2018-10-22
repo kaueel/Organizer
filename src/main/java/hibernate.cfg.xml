@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="connection.autocommit">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="sql.enforce_strict_size">true</property>
+        <property name="connection.url">jdbc:mysql://organizer_ft.mysql.dbaas.com.br/organizer_ft?useTimezone=true&amp;serverTimezone=UTC</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.username">organizer_ft</property>
+        <property name="hibernate.connection.password">FT12345</property>
+        <mapping class="Models.ActionPlan"/>
+        <mapping class="Models.ActionPlanLawSuit"/>
+        <mapping class="Models.ActionPlanType"/>
+        <mapping class="Models.Address"/>
+        <mapping class="Models.City"/>
+        <mapping class="Models.Client"/>
+        <mapping class="Models.ClientRepresentative"/>
+        <mapping class="Models.ClientType"/>
+        <mapping class="Models.Country"/>
+        <mapping class="Models.DocumentTemplates"/>
+        <mapping class="Models.DocumentVariable"/>
+        <mapping class="Models.DocumentVariableInDocumentTemplates"/>
+        <mapping class="Models.DocumentVariableType"/>
+        <mapping class="Models.Employee"/>
+        <mapping class="Models.EmployeeLawSuit"/>
+        <mapping class="Models.LawSuit"/>
+        <mapping class="Models.LawSuitEvent"/>
+        <mapping class="Models.LawSuitEventStatus"/>
+        <mapping class="Models.LawSuitEventType"/>
+        <mapping class="Models.LawSuitProgress"/>
+        <mapping class="Models.Meeting"/>
+        <mapping class="Models.MeetingStatus"/>
+        <mapping class="Models.SubLawSuit"/>
+    </session-factory>
+</hibernate-configuration>

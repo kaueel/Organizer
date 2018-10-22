@@ -1,17 +1,16 @@
-.whiteframe{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 0)
+.whiteframe {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 20, 0, 0, 0)
 }
 
-.background-white{
+.background-white {
     -fx-background-color: #fff;
 }
 
-.menu{
+.menu {
     -fx-pref-width: 300px;
 }
 
-
-.menuItem{
+.menuItem {
     -fx-font-family: Arial;
     -fx-text-fill: #777;
     -fx-font-size: 18px;
