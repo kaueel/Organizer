@@ -27,7 +27,7 @@ public class EmployeesCtl extends Screen {
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
-    @FXML // fx:id="btnNewEmployee"
+    @FXML
     private Button btnNewEmployee;
 
     @FXML
@@ -44,18 +44,12 @@ public class EmployeesCtl extends Screen {
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
 
-
-        for (Object employee : dataController.getAllObjectsOfType(Employee.class)){
-            employees.add((Employee) employee);
-        }
-
+        employees = (ObservableList<Employee>) dataController.getAllObjectsOfType(Employee.class);
 
         rowEmployeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
         rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("position"));
-
         employeesTable.setItems(employees);
-        System.out.println("teste");
     }
 
     @FXML

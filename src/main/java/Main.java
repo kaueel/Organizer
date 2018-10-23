@@ -23,8 +23,8 @@ public class Main extends Application {
         primaryStage.setScene(mainScreenController.getMainScene());
         primaryStage.setMaximized(true);
         primaryStage.show();
-        mainScreenController.showNewMainScreen("/Screens/HelloWord/HelloWord.fxml");
-        mainScreenController.showNewLeftScreen("/Screens/Menu/menu.fxml");
+        mainScreenController.showNewMainScreen("/Screens/Login/Login.fxml");
+        //mainScreenController.showNewLeftScreen("/Screens/Menu/menu.fxml");
         mainScreenController.showNewTopScreen("/Screens/Toobar/toobar.fxml");
 
     }
