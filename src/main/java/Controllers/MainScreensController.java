@@ -33,6 +33,7 @@ public class MainScreensController extends Observable {
         titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
         titlesMap.put("/Screens/Employees/employees.fxml", "Funcionários");
         titlesMap.put("/Screens/Employees/employee.fxml", "Funcionário");
+        titlesMap.put("/Screens/Login/login.fxml", "Login");
     }
 
     public static synchronized MainScreensController getInstance() {
@@ -66,7 +67,7 @@ public class MainScreensController extends Observable {
 
     public void showNewMainScreen(String fxmlPath) {
         ((BorderPane) root).setCenter(createScreen(fxmlPath));
-        notifyObservers();
+        notifyObservers(titlesMap.get(fxmlPath));
     }
 
     private Node createScreen(String fxmlPath) {
