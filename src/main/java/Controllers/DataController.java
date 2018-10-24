@@ -86,7 +86,7 @@ public class DataController {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return retrievedObject;
+        return data.cast(retrievedObject);
     }
 
 
@@ -106,7 +106,10 @@ public class DataController {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+
         ObservableList<Object> objList = FXCollections.observableArrayList();
+
+        assert retrievedObjects != null;
         for (Object obj: retrievedObjects){
             obj = data.cast(obj);
             objList.add(obj);
