@@ -20,7 +20,7 @@ public class Toolbar extends Screen implements Observer {
     @FXML
     private void initialize() {
         mainScreensController = MainScreensController.getInstance();
-        mainScreensController.addObserver(this);
+        MainScreensController.addObserverStatic(this);
     }
 
 

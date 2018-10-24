@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.Observer;
 
 public class MainScreensController extends Observable {
     private static MainScreensController instance;
@@ -82,6 +83,13 @@ public class MainScreensController extends Observable {
             throw new RuntimeException("You should use AnchorPane as the root of your screen");
         return node;
     }
+
+
+
+    public static void addObserverStatic(Observer observer) {
+        getInstance().addObserver(observer);
+    }
+
 
     public void showNewTopScreen(String fxmlPath) {
         ((BorderPane) root).setTop(createScreen(fxmlPath));
