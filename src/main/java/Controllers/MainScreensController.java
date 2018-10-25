@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.Observer;
 
 public class MainScreensController extends Observable {
     private static MainScreensController instance;
@@ -33,6 +34,7 @@ public class MainScreensController extends Observable {
         titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
         titlesMap.put("/Screens/Employees/employees.fxml", "Funcionários");
         titlesMap.put("/Screens/Employees/employee.fxml", "Funcionário");
+        titlesMap.put("/Screens/Login/login.fxml", "Login");
     }
 
     public static synchronized MainScreensController getInstance() {
@@ -66,7 +68,7 @@ public class MainScreensController extends Observable {
 
     public void showNewMainScreen(String fxmlPath) {
         ((BorderPane) root).setCenter(createScreen(fxmlPath));
-        notifyObservers();
+        notifyObservers(titlesMap.get(fxmlPath));
     }
 
     private Node createScreen(String fxmlPath) {
@@ -81,6 +83,13 @@ public class MainScreensController extends Observable {
             throw new RuntimeException("You should use AnchorPane as the root of your screen");
         return node;
     }
+
+
+
+    public static void addObserverStatic(Observer observer) {
+        getInstance().addObserver(observer);
+    }
+
 
     public void showNewTopScreen(String fxmlPath) {
         ((BorderPane) root).setTop(createScreen(fxmlPath));

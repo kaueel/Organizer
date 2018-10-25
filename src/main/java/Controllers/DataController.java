@@ -1,5 +1,7 @@
 package Controllers;
 
+import Models.Client;
+import Models.Employee;
 import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
@@ -14,6 +16,7 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class DataController {
@@ -83,10 +86,11 @@ public class DataController {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return retrievedObject;
+        return data.cast(retrievedObject);
     }
 
-    public ObservableList<Object> getAllObjectsOfType(Class data) {
+
+    public ObservableList<?> getAllObjectsOfType(Class data) {
         List<?> retrievedObjects = null;
         try {
             Session session = sessionFactory.openSession();
@@ -102,12 +106,16 @@ public class DataController {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        ObservableList<Object> list = FXCollections.observableArrayList();
-        if (retrievedObjects != null) {
-            list.addAll(retrievedObjects);
+
+        ObservableList<Object> objList = FXCollections.observableArrayList();
+
+        assert retrievedObjects != null;
+        for (Object obj: retrievedObjects){
+            obj = data.cast(obj);
+            objList.add(obj);
         }
 
-        return list;
+        return objList;
     }
 
     private void executeTransaction(Transaction transaction) {
