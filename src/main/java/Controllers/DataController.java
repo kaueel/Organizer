@@ -18,12 +18,20 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.concurrent.*;
 
 public class DataController {
-    private static SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    private Callable<?> callableObj = () -> { return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();  };
+    private  static  SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     private static DataController instance;
+    private ExecutorService executorService = Executors.newCachedThreadPool();
+    private FutureTask futTask = new FutureTask(
+            callableObj
+    );
 
     private DataController() {
+
+            executorService.submit(callableObj);
 
     }
 
@@ -40,6 +48,7 @@ public class DataController {
 
     public void saveObject(Object data) {
         try {
+
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
             session.persist(data);
@@ -75,6 +84,7 @@ public class DataController {
     }
 
     public Object getObjectById(Class data,  Integer id) {
+
         Object retrievedObject = null;
         try {
 
@@ -91,6 +101,9 @@ public class DataController {
 
 
     public ObservableList<?> getAllObjectsOfType(Class data) {
+
+
+
         List<?> retrievedObjects = null;
         try {
             Session session = sessionFactory.openSession();
