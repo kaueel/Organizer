@@ -1,8 +1,5 @@
 package Screens.Employee;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import Controllers.DataController;
 import Models.Employee;
 import javafx.event.ActionEvent;
@@ -10,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class EmployeeCtl {
@@ -48,14 +48,14 @@ public class EmployeeCtl {
     void SaveEmployee(ActionEvent event) {
 
         Employee employee = new Employee();
-                employee.setCpf(EmployeeCpfField.getText());
-                employee.setName(EmployeeNameField.getText());
-                employee.setLogin(EmployeeUserNameField.getText());
-                employee.setToken(EmployeePasswordField.getText());
-                employee.setPosition(EmployeePositionField.getText());
-                employee.setSalary(EmployeeSalaryField.getText());
-                employee.setPhone(EmployeePhoneField.getText());
-                employee.setAccessLevel(1);
+        employee.setCpf(EmployeeCpfField.getText());
+        employee.setName(EmployeeNameField.getText());
+        employee.setLogin(EmployeeUserNameField.getText());
+        employee.setToken(EmployeePasswordField.getText());
+        employee.setPosition(EmployeePositionField.getText());
+        employee.setSalary(EmployeeSalaryField.getText());
+        employee.setPhone(EmployeePhoneField.getText());
+        employee.setAccessLevel(1);
 
 
         mDataController.saveObject(employee);

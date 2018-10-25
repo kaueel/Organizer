@@ -1,15 +1,12 @@
 package Screens.Menu;
 
-import Controllers.DataController;
 import Controllers.MainScreensController;
-import Models.Country;
 import Controllers.Screen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -48,9 +45,9 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
         itemTemplate.setOnMouseExited(this);
 
     }
-    
+
     @FXML
-    void callEmployeeScreen(){
+    void callEmployeeScreen() {
         mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
     }
 
