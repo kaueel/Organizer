@@ -21,6 +21,7 @@ public class MainScreensController extends Observable {
     private int WIDTH = 1300;
     private int HEIGHT = 700;
     private String currentScreenTitle;
+
     {
         try {
             root = FXMLLoader.load(getClass().getResource("/Screens/MainContainer/mainContainer.fxml"));
@@ -44,6 +45,10 @@ public class MainScreensController extends Observable {
         return instance;
     }
 
+    public static void addObserverStatic(Observer observer) {
+        getInstance().addObserver(observer);
+    }
+
     public String getTitle() {
         return currentScreenTitle;
     }
@@ -51,11 +56,11 @@ public class MainScreensController extends Observable {
     private Pane getScreenFromMap(String fxmlPath) {
         Pane pane = null;
         FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
-            try {
-                pane = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return pane;
     }
 
@@ -83,13 +88,6 @@ public class MainScreensController extends Observable {
             throw new RuntimeException("You should use AnchorPane as the root of your screen");
         return node;
     }
-
-
-
-    public static void addObserverStatic(Observer observer) {
-        getInstance().addObserver(observer);
-    }
-
 
     public void showNewTopScreen(String fxmlPath) {
         ((BorderPane) root).setTop(createScreen(fxmlPath));
