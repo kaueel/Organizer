@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: fff;"
+            styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="Screens.Employees.EmployeesCtl">
+    <children>
+        <GridPane style="-fx-background-color: fff;" stylesheets="@clients.css" AnchorPane.bottomAnchor="15.0"
+                  AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="51.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="99.0" minWidth="10.0" prefWidth="99.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="150.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="54.0" vgrow="NEVER"/>
+                <RowConstraints minHeight="0.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Button fx:id="btnNewEmployee" mnemonicParsing="false" onAction="#callEmployeeScreen" prefHeight="25.0"
+                        prefWidth="99.0" text="New Client" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                    <GridPane.margin>
+                        <Insets right="40.0"/>
+                    </GridPane.margin>
+                </Button>
+                <TableView fx:id="employeesTable" GridPane.columnSpan="5" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="rowEmployeeName" prefWidth="295.0" text="Name"/>
+                        <TableColumn fx:id="rowEmployeePhone" prefWidth="157.0" text="Phone"/>
+                        <TableColumn fx:id="rowEmployeeCargo" minWidth="0.0" prefWidth="147.0" text="Position"/>
+                    </columns>
+                </TableView>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
