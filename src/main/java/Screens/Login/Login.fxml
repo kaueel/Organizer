@@ -33,7 +33,7 @@
                 <Font name="FreeSans" size="13.0"/>
             </font>
         </PasswordField>
-        <Button fx:id="btnLogin" alignment="CENTER" contentDisplay="CENTER" maxHeight="15.0"
+        <Button fx:id="btnLogin" styleClass="button" alignment="CENTER" contentDisplay="CENTER" maxHeight="15.0"
                 maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loginUser" opacity="0.9"
                 text="Log In" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true"
                 GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
