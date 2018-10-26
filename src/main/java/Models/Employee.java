@@ -45,11 +45,12 @@ public class Employee {
         this.name = name;
     }
 
-      @Basic
+    @Basic
     @Column(name = "Phone", nullable = false, length = 200)
     public String getPhone() {
         return phone;
     }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -73,8 +74,6 @@ public class Employee {
     public void setPosition(String position) {
         this.position = position;
     }
-
-
 
 
     @Basic

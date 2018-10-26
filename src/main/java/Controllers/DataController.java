@@ -1,10 +1,6 @@
 package Controllers;
 
-import Models.Client;
-import Models.Employee;
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -16,27 +12,22 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.*;
 
 public class DataController {
-    private Callable<?> callableObj = () -> { return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();  };
-    private  static  SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    private static SessionFactory sessionFactory = null;
     private static DataController instance;
+    private Callable<?> callableObj = () -> {
+        return new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    };
     private ExecutorService executorService = Executors.newCachedThreadPool();
-    private FutureTask futTask = new FutureTask(
-            callableObj
-    );
+    private FutureTask futTask;
 
     private DataController() {
 
-            executorService.submit(callableObj);
+        futTask = (FutureTask) executorService.submit(callableObj);
 
-    }
-
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
     }
 
     public static synchronized DataController getInstance() {
@@ -44,6 +35,20 @@ public class DataController {
             instance = new DataController();
         }
         return instance;
+    }
+
+    public void getSessionFactory() {
+        if (sessionFactory == null) {
+            try {
+                sessionFactory = (SessionFactory) futTask.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (NullPointerException e) {
+                getSessionFactory();
+            }
+        }
     }
 
     public void saveObject(Object data) {
@@ -83,11 +88,10 @@ public class DataController {
         }
     }
 
-    public Object getObjectById(Class data,  Integer id) {
+    public Object getObjectById(Class data, Integer id) {
 
         Object retrievedObject = null;
         try {
-
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
             retrievedObject = session.get(data, id);
@@ -99,10 +103,9 @@ public class DataController {
         return data.cast(retrievedObject);
     }
 
-
     public ObservableList<?> getAllObjectsOfType(Class data) {
 
-
+        getSessionFactory();
 
         List<?> retrievedObjects = null;
         try {
@@ -123,7 +126,7 @@ public class DataController {
         ObservableList<Object> objList = FXCollections.observableArrayList();
 
         assert retrievedObjects != null;
-        for (Object obj: retrievedObjects){
+        for (Object obj : retrievedObjects) {
             obj = data.cast(obj);
             objList.add(obj);
         }
