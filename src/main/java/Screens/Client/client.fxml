@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -77,12 +78,15 @@
                                 <Insets right="20.0" />
                             </GridPane.margin>
                         </Label>
-                  <RadioButton mnemonicParsing="false" text="Pessoa Física" GridPane.columnIndex="1">
+                  <RadioButton fx:id="radioPerson" mnemonicParsing="false" text="Pessoa Física" GridPane.columnIndex="1">
                      <padding>
                         <Insets left="60.0" />
                      </padding>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="clientType" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Pessoa Jurídica" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                  <RadioButton fx:id="radioCompany" mnemonicParsing="false" text="Pessoa Jurídica" toggleGroup="$clientType" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                      <GridPane.margin>
                         <Insets right="60.0" />
                      </GridPane.margin>
@@ -100,37 +104,37 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="3" />
+                  <TextField fx:id="clientStreetField" GridPane.columnIndex="3" />
                   <Label text="Bairro" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="clientDistrictField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Label text="Número" textFill="#6f6f6f" GridPane.columnIndex="4">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="5" />
+                  <TextField fx:id="clientAdressNumberField" GridPane.columnIndex="5" />
                   <Label text="Cidade" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextField fx:id="clientCityField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                   <Label text="Estado" textFill="#6f6f6f" GridPane.columnIndex="4" GridPane.rowIndex="2">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <TextField fx:id="clientAdressStateField" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                   <Label text="CEP" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <TextField fx:id="clientCepField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
                 <Button fx:id="btnSaveClient" mnemonicParsing="false" onAction="#SaveClient" text="Salvar" GridPane.columnIndex="1" GridPane.halignment="RIGHT">

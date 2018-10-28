@@ -47,7 +47,7 @@ public class ClientsClt extends Screen {
 
         rowClientName.setCellValueFactory(new PropertyValueFactory<>("name"));
         rowClientPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        rowClientDocument.setCellValueFactory(new PropertyValueFactory<>("position"));
+        rowClientDocument.setCellValueFactory(new PropertyValueFactory<>("email"));
         clientsTable.setItems(clients);
     }
 
