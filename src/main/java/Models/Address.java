@@ -10,6 +10,8 @@ public class Address {
     private String address2;
     private String district;
     private String postalCode;
+    private City cityByCityId;
+    private State stateByStateId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,30 @@ public class Address {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
+    @ManyToOne
+    @JoinColumn(name = "CityID", referencedColumnName = "ID", nullable = false)
+    public City getCityByCityId() {
+        return cityByCityId;
+    }
+
+    public void setCityByCityId(City cityByCityId) {
+        this.cityByCityId = cityByCityId;
+    }
+
+
+    @ManyToOne
+    @JoinColumn(name = "StateID", referencedColumnName = "ID", nullable = false)
+    public State getStateByStateId() {
+        return stateByStateId;
+    }
+
+    public void setStateByStateId(State stateByStateId) {
+        this.stateByStateId = stateByStateId;
+    }
+
+
 
     @Basic
     @Column(name = "Address", nullable = false, length = 50)
@@ -71,11 +97,13 @@ public class Address {
                 Objects.equals(address, address1.address) &&
                 Objects.equals(address2, address1.address2) &&
                 Objects.equals(district, address1.district) &&
-                Objects.equals(postalCode, address1.postalCode);
+                Objects.equals(postalCode, address1.postalCode) &&
+                Objects.equals(cityByCityId, address1.cityByCityId) &&
+                Objects.equals(stateByStateId, address1.stateByStateId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, address, address2, district, postalCode);
+        return Objects.hash(id, address, address2, district, postalCode, cityByCityId, stateByStateId);
     }
 }

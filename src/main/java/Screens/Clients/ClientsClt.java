@@ -3,6 +3,7 @@ package Screens.Clients;
 import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
+import Models.Client;
 import Models.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,43 +19,41 @@ import java.util.ResourceBundle;
 public class ClientsClt extends Screen {
     private MainScreensController mainScreensController = MainScreensController.getInstance();
     private DataController dataController = DataController.getInstance();
-    private ObservableList<Employee> employees = FXCollections.observableArrayList();
+    private ObservableList<Client> clients = FXCollections.observableArrayList();
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
+    @FXML
     private ResourceBundle resources;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
+    @FXML
     private URL location;
 
     @FXML
-    private Button btnNewEmployee;
+    private Button btnNewClient;
 
     @FXML
-    private TableColumn<ObservableList<Employee>, String> rowEmployeeName;
+    private TableColumn<ObservableList<Employee>, String> rowClientName;
     @FXML
-    private TableColumn<ObservableList<Employee>, String> rowEmployeePhone;
+    private TableColumn<ObservableList<Employee>, String> rowClientPhone;
     @FXML
-    private TableColumn<ObservableList<Employee>, String> rowEmployeeCargo;
-
-    @FXML // fx:id="employeesTable"
-    private TableView<Employee> employeesTable;
-
+    private TableColumn<ObservableList<Employee>, String> rowClientDocument;
 
     @FXML
-        // This method is called by the FXMLLoader when initialization is complete
+    private TableView<Client> clientsTable;
+
+    @FXML
     void initialize() {
 
-        employees = (ObservableList<Employee>) dataController.getAllObjectsOfType(Employee.class);
+        clients = (ObservableList<Client>) dataController.getAllObjectsOfType(Client.class);
 
-        rowEmployeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("position"));
-        employeesTable.setItems(employees);
+        rowClientName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        rowClientPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        rowClientDocument.setCellValueFactory(new PropertyValueFactory<>("position"));
+        clientsTable.setItems(clients);
     }
 
     @FXML
-    void callEmployeeScreen() {
-        mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
+    void callClientScreen() {
+        mainScreensController.showNewMainScreen("/Screens/Client/client.fxml");
 
     }
 }

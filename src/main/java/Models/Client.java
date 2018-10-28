@@ -8,9 +8,10 @@ public class Client {
     private Integer id;
     private String name;
     private String email;
-    private Integer addressNumber;
-    private String documentNUmber;
+    private String documentNumber;
     private Address addressByAddressId;
+    private String phone;
+    private ClientType clientTypeByClientTypeId;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,29 @@ public class Client {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
+    @ManyToOne
+    @JoinColumn(name = "ClientTypeID", referencedColumnName = "ID", nullable = false)
+    public ClientType getClientTypeByClientTypeId() {
+        return clientTypeByClientTypeId;
+    }
+
+    public void setClientTypeByClientTypeId(ClientType clientTypeByClientTypeId) {
+        this.clientTypeByClientTypeId = clientTypeByClientTypeId;
+    }
+
+
+    @Basic
+    @Column(name = "Phone", nullable = false, length = 200)
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 
     @Basic
     @Column(name = "Name", nullable = false, length = 200)
@@ -44,23 +68,13 @@ public class Client {
     }
 
     @Basic
-    @Column(name = "AddressNumber", nullable = false)
-    public Integer getAddressNumber() {
-        return addressNumber;
+    @Column(name = "DocumentNumber", nullable = false, length = 50)
+    public String getDocumentNumber() {
+        return documentNumber;
     }
 
-    public void setAddressNumber(Integer addressNumber) {
-        this.addressNumber = addressNumber;
-    }
-
-    @Basic
-    @Column(name = "DocumentNUmber", nullable = false, length = 50)
-    public String getDocumentNUmber() {
-        return documentNUmber;
-    }
-
-    public void setDocumentNUmber(String documentNUmber) {
-        this.documentNUmber = documentNUmber;
+    public void setDocumentNumber(String documentNUmber) {
+        this.documentNumber = documentNUmber;
     }
 
     @Override
@@ -71,13 +85,14 @@ public class Client {
         return Objects.equals(id, client.id) &&
                 Objects.equals(name, client.name) &&
                 Objects.equals(email, client.email) &&
-                Objects.equals(addressNumber, client.addressNumber) &&
-                Objects.equals(documentNUmber, client.documentNUmber);
+                Objects.equals(addressByAddressId, client.addressByAddressId) &&
+                Objects.equals(documentNumber, client.documentNumber);
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, addressNumber, documentNUmber);
+        return Objects.hash(id, name, email, addressByAddressId, documentNumber);
     }
 
     @ManyToOne
