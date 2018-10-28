@@ -4,9 +4,9 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Country {
+public class State {
     private Integer id;
-    private String countryName;
+    private String stateName;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,27 +20,27 @@ public class Country {
     }
 
     @Basic
-    @Column(name = "Country", nullable = false, length = 50)
-    public String getCountry() {
-        return countryName;
+    @Column(name = "State", nullable = false, length = 50)
+    public String getState() {
+        return stateName;
     }
 
-    public void setCountry(String countryName) {
-        this.countryName = countryName;
+    public void setState(String countryName) {
+        this.stateName = countryName;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Country country1 = (Country) o;
-        return Objects.equals(id, country1.id) &&
-                Objects.equals(countryName, country1.countryName);
+        State state1 = (State) o;
+        return Objects.equals(id, state1.id) &&
+                Objects.equals(stateName, state1.stateName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, countryName);
+        return Objects.hash(id, stateName);
     }
 
 }

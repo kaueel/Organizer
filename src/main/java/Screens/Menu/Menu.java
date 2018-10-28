@@ -37,7 +37,6 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
         itemEvent.setOnMouseEntered(this);
         itemEmployee.setOnMouseEntered(this);
         itemTemplate.setOnMouseEntered(this);
-
         itemClient.setOnMouseExited(this);
         itemLowSuit.setOnMouseExited(this);
         itemEvent.setOnMouseExited(this);
@@ -49,6 +48,11 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
     @FXML
     void callEmployeeScreen() {
         mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
+    }
+
+    @FXML
+    void callClientScreen() {
+        mainScreensController.showNewMainScreen("/Screens/Clients/clients.fxml");
     }
 
 
