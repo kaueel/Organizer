@@ -89,7 +89,6 @@ public class Client {
                 Objects.equals(documentNumber, client.documentNumber);
     }
 
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name, email, addressByAddressId, documentNumber);

@@ -33,7 +33,7 @@
                     <columns>
                         <TableColumn fx:id="rowClientName" prefWidth="295.0" text="Name" />
                         <TableColumn fx:id="rowClientPhone" prefWidth="157.0" text="Phone" />
-                        <TableColumn fx:id="rowClientDocument" minWidth="0.0" prefWidth="147.0" text="Position" />
+                        <TableColumn fx:id="rowClientDocument" minWidth="0.0" prefWidth="147.0" text="Email" />
                     </columns>
                 </TableView>
             </children>

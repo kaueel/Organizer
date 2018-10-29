@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane prefHeight="400.0" prefWidth="300.0" styleClass="whiteframe,background-white" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Menu.Menu">
-    <Label fx:id="itemClient" layoutX="14.0" layoutY="14.0" onMouseClicked="#callClientScreen" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Clientes" textFill="#777777" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-    <Label fx:id="itemLowSuit" layoutX="15.0" layoutY="51.0" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Processos" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-    <Label fx:id="itemEvent" layoutX="16.0" layoutY="87.0" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Eventos" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" />
-    <Label fx:id="itemEmployee" layoutX="15.0" layoutY="124.0" onMouseClicked="#callEmployeeScreen" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Funcionários" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-    <Label fx:id="itemTemplate" layoutX="15.0" layoutY="161.0" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Templates" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="300.0" styleClass="background-white"
+            stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Screens.Menu.Menu">
+    <AnchorPane styleClass="background-white, menu, whiteframe" minHeight="0.0" minWidth="0.0" prefHeight="200.0"
+                prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Label fx:id="itemClient" layoutX="-20.0" layoutY="14.0" onMouseClicked="#callClientScreen"
+                   prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Clientes" textFill="#777777"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+            <Label fx:id="itemLowSuit" layoutY="51.0" prefHeight="41.0" prefWidth="300.0" styleClass="menuItem"
+                   text="Processos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="50.0"/>
+            <Label fx:id="itemEvent" layoutX="-20.0" layoutY="92.0" prefHeight="27.0" prefWidth="245.0"
+                   styleClass="menuItem" text="Eventos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="100.0"/>
+            <Label fx:id="itemEmployee" layoutX="-20.0" layoutY="124.0" onMouseClicked="#callEmployeeScreen"
+                   prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Funcionários"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0"/>
+            <Label fx:id="itemTemplate" layoutX="-20.0" layoutY="161.0" prefHeight="27.0" prefWidth="245.0"
+                   styleClass="menuItem" text="Templates" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="200.0"/>
+        </children>
+    </AnchorPane>
 </AnchorPane>
