@@ -8,5 +8,7 @@
 
 .button{
     -fx-background-color: #204370;
+    -fx-text-fill: #fff;
+    -fx-opacity: 0.9;
+    -fx-text-alignment: 'center';
 }
-
