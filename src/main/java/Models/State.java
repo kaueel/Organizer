@@ -4,43 +4,81 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "State", schema = "organizer_ft")
 public class State {
-    private Integer id;
-    private String stateName;
+    private int id;
+    private int codigoUf;
+    private int regiao;
+    private String nome;
+    private String uf;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "State", nullable = false, length = 50)
-    public String getState() {
-        return stateName;
+    @Column(name = "CodigoUf")
+    public int getCodigoUf() {
+        return codigoUf;
     }
 
-    public void setState(String countryName) {
-        this.stateName = countryName;
+    public void setCodigoUf(int codigoUf) {
+        this.codigoUf = codigoUf;
+    }
+
+    @Basic
+    @Column(name = "Regiao")
+    public int getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(int regiao) {
+        this.regiao = regiao;
+    }
+
+    @Basic
+    @Column(name = "Nome")
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Basic
+    @Column(name = "Uf")
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        State state1 = (State) o;
-        return Objects.equals(id, state1.id) &&
-                Objects.equals(stateName, state1.stateName);
+        State that = (State) o;
+        return id == that.id &&
+                codigoUf == that.codigoUf &&
+                regiao == that.regiao &&
+                Objects.equals(nome, that.nome) &&
+                Objects.equals(uf, that.uf);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, stateName);
+        return Objects.hash(id, codigoUf, regiao, nome, uf);
     }
-
 }
+

@@ -38,10 +38,11 @@ public class Login extends Screen {
                 if (pwdText.equals(employee.getToken())) {
                     mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
                     mainScreensController.showNewLeftScreen("/Screens/Menu/menu.fxml");
+                } else {
+                    lblWrongPassword.setOpacity(1);
                 }
-
             } else {
-                lblWrongPassword.setOpacity(1.0);
+                lblWrongPassword.setOpacity(1);
             }
         }
     }

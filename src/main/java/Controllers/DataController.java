@@ -52,7 +52,9 @@ public class DataController {
     }
 
     public void saveObject(Object data) {
+
         try {
+            getSessionFactory();
 
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();

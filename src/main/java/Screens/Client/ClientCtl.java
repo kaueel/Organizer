@@ -1,12 +1,14 @@
 package Screens.Client;
 
 import Controllers.DataController;
-import Controllers.MainScreensController;
 import Models.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,8 +73,7 @@ public class ClientCtl {
         City city = new City();
         State state = new State();
         Address address = new Address();
-        city.setCity(clientCityField.getText());
-        state.setState(clientAdressStateField.getText());
+        city.setName(clientCityField.getText());
         mDataController.saveObject(state);
         mDataController.saveObject(city);
 
