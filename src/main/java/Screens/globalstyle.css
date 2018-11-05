@@ -6,7 +6,7 @@
     -fx-background-color: #fff;
 }
 
-.button{
+.buttonBlue{
     -fx-background-color: #204370;
     -fx-text-fill: #fff;
     -fx-opacity: 0.9;
@@ -16,10 +16,60 @@
     -fx-text-overrun: 'clip';
 }
 
+.buttonWhite{
+    -fx-background-color: fff;
+    -fx-text-fill: black;
+    -fx-opacity: 0.9;
+    -fx-text-alignment: 'center';
+    -fx-pref-height: 36;
+    -fx-alignment: 'center';
+    -fx-text-overrun: 'clip';
+    -fx-border-color: gray;
+    -fx-border-width: 1;
+}
+
 .gridForm{
     -fx-alignment: 'top_center';
     -fx-hgap: 30;
     -fx-background-color: fff;
 }
 
+.table-view{
+   -fx-background-color: transparent;
+}
 
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: fff;
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: gray;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: black;
+    -fx-alignment: 'center';
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, fff;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}

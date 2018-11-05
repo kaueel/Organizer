@@ -32,12 +32,15 @@
             </GridPane.margin>
         </TextField>
         <PasswordField fx:id="pwdField" prefHeight="39.0" prefWidth="310.0" promptText="Password" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-        <Button fx:id="btnLogin" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#loginUser" opacity="0.9" styleClass="button" stylesheets="@../globalstyle.css" text="Log In" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+        <Button fx:id="btnLogin" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#loginUser" opacity="0.9" styleClass="buttonBlue" stylesheets="@../globalstyle.css" text="Log In" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
             <GridPane.margin>
                 <Insets top="24.0" />
             </GridPane.margin>
         </Button>
-        <Label fx:id="lblWrongPassword" opacity="0.0" prefHeight="17.0" prefWidth="177.0" text="Usuário ou senha incorretos" textFill="RED" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+        <Label fx:id="lblWrongPassword" alignment="CENTER" maxWidth="1.7976931348623157E308" opacity="0.0" prefHeight="17.0" prefWidth="177.0" style="-fx-background-color: white;" text="Usuário ou senha incorretos" textAlignment="JUSTIFY" textFill="RED" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+         <padding>
+            <Insets top="10.0" />
+         </padding></Label>
         <ImageView fitHeight="70.0" fitWidth="305.0" preserveRatio="true" GridPane.columnSpan="3" GridPane.halignment="CENTER">
             <image>
                 <Image url="@organizer-white-logo.png" />
