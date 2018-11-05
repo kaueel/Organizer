@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Clients.ClientsClt">
+<AnchorPane styleClass="whiteframe,background-white" stylesheets="@../globalstyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Clients.ClientsClt">
     <children>
         <GridPane style="-fx-background-color: fff;" stylesheets="@clients.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
             <columnConstraints>
@@ -24,9 +24,9 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewClient" mnemonicParsing="false" onAction="#callClientScreen" prefHeight="25.0" prefWidth="99.0" text="New Client" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#callClientScreen" prefHeight="25.0" styleClass="button" stylesheets="@../globalstyle.css" text="New Client" GridPane.columnIndex="4" GridPane.halignment="CENTER">
                     <GridPane.margin>
-                        <Insets right="40.0" />
+                        <Insets />
                     </GridPane.margin>
                 </Button>
                 <TableView fx:id="clientsTable" GridPane.columnSpan="5" GridPane.rowIndex="1">
