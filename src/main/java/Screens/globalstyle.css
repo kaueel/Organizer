@@ -11,4 +11,15 @@
     -fx-text-fill: #fff;
     -fx-opacity: 0.9;
     -fx-text-alignment: 'center';
+    -fx-pref-height: 36;
+    -fx-alignment: 'center';
+    -fx-text-overrun: 'clip';
 }
+
+.gridForm{
+    -fx-alignment: 'top_center';
+    -fx-hgap: 30;
+    -fx-background-color: fff;
+}
+
+
