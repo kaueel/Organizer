@@ -1,7 +1,7 @@
 package Screens.Menu;
 
 import Controllers.MainScreensController;
-import Screens.AbstractScreen;
+import Controllers.Screen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -10,12 +10,7 @@ import javafx.scene.input.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Menu extends AbstractScreen implements Observer, EventHandler<MouseEvent> {
-
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
+public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
 
     @FXML
     private Label itemClient;
@@ -27,8 +22,12 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
     private Label itemEmployee;
     @FXML
     private Label itemTemplate;
-
     private MainScreensController mainScreensController;
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 
     @FXML
     private void initialize() {
@@ -38,7 +37,6 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
         itemEvent.setOnMouseEntered(this);
         itemEmployee.setOnMouseEntered(this);
         itemTemplate.setOnMouseEntered(this);
-
         itemClient.setOnMouseExited(this);
         itemLowSuit.setOnMouseExited(this);
         itemEvent.setOnMouseExited(this);
@@ -47,15 +45,23 @@ public class Menu extends AbstractScreen implements Observer, EventHandler<Mouse
 
     }
 
+    @FXML
+    void callEmployeeScreen() {
+        mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
+    }
+
+    @FXML
+    void callClientScreen() {
+        mainScreensController.showNewMainScreen("/Screens/Clients/clients.fxml");
+    }
+
     @Override
     public void handle(MouseEvent event) {
 
-        if(event.getEventType().toString().equals("MOUSE_ENTERED")){
-            ((Label)event.getSource()).setStyle("-fx-background-color: #e2e2e2;");
-        }
-        else if(event.getEventType().toString().equals("MOUSE_EXITED"))
-        {
-            ((Label)event.getSource()).setStyle("-fx-background-color: transparent");
+        if (event.getEventType().toString().equals("MOUSE_ENTERED")) {
+            ((Label) event.getSource()).setStyle("-fx-background-color: #e2e2e2;");
+        } else if (event.getEventType().toString().equals("MOUSE_EXITED")) {
+            ((Label) event.getSource()).setStyle("-fx-background-color: transparent");
         }
     }
 }

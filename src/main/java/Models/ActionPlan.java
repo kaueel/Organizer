@@ -4,9 +4,9 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class MeetingStatus {
+public class ActionPlan {
     private Integer id;
-    private String description;
+    private String strategy;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,26 +20,26 @@ public class MeetingStatus {
     }
 
     @Basic
-    @Column(name = "Description", nullable = false, length = 50)
-    public String getDescription() {
-        return description;
+    @Column(name = "Strategy", nullable = false, length = 2000)
+    public String getStrategy() {
+        return strategy;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MeetingStatus that = (MeetingStatus) o;
+        ActionPlan that = (ActionPlan) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(description, that.description);
+                Objects.equals(strategy, that.strategy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description);
+        return Objects.hash(id, strategy);
     }
 }

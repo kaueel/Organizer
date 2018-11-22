@@ -11,21 +11,17 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.Observer;
 
 public class MainScreensController extends Observable {
     private static MainScreensController instance;
+    private static HashMap<String, String> titlesMap = new HashMap<>();
+    private static Scene mainScene;
+    private static Parent root;
     private int WIDTH = 1300;
     private int HEIGHT = 700;
-    private static HashMap<String, Pane> screensMap = new HashMap<>();
-    private static HashMap<String, String> titlesMap = new HashMap<>();
     private String currentScreenTitle;
 
-    private static Scene mainScene;
-
-    private MainScreensController() {
-        titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
-    }
-    private static Parent root;
     {
         try {
             root = FXMLLoader.load(getClass().getResource("/Screens/MainContainer/mainContainer.fxml"));
@@ -34,8 +30,14 @@ public class MainScreensController extends Observable {
         }
     }
 
-    public String getTitle() {
-        return currentScreenTitle;
+
+    private MainScreensController() {
+        titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
+        titlesMap.put("/Screens/Employees/employees.fxml", "Funcionários");
+        titlesMap.put("/Screens/Employees/employee.fxml", "Funcionário");
+        titlesMap.put("/Screens/Login/login.fxml", "Login");
+        titlesMap.put("/Screens/Clients/clients.fxml", "Clientes");
+        titlesMap.put("/Screens/Client/client.fxml", "Cliente");
     }
 
     public static synchronized MainScreensController getInstance() {
@@ -45,17 +47,21 @@ public class MainScreensController extends Observable {
         return instance;
     }
 
-    //Avoids rebiulding of already used screens, saving bult panes in a hashMap
+    public static void addObserverStatic(Observer observer) {
+        getInstance().addObserver(observer);
+    }
+
+    public String getTitle() {
+        return currentScreenTitle;
+    }
+
     private Pane getScreenFromMap(String fxmlPath) {
-        Pane pane = screensMap.get(fxmlPath);
-        if (pane == null) {
-            FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
-            try {
-                pane = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            screensMap.put(fxmlPath, pane);
+        Pane pane = null;
+        FXMLLoader loader = new FXMLLoader(MainScreensController.class.getResource(fxmlPath));
+        try {
+            pane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return pane;
     }
@@ -67,9 +73,9 @@ public class MainScreensController extends Observable {
         return mainScene;
     }
 
-    public void showNewCenterScreen(String fxmlPath) {
+    public void showNewMainScreen(String fxmlPath) {
         ((BorderPane) root).setCenter(createScreen(fxmlPath));
-        notifyObservers();
+        notifyObservers(titlesMap.get(fxmlPath));
     }
 
     private Node createScreen(String fxmlPath) {
@@ -80,9 +86,8 @@ public class MainScreensController extends Observable {
             currentScreenTitle = titlesMap.get(fxmlPath);
         }
         notifyObservers();
-        if(!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
-            throw  new RuntimeException("You should use AnchorPane as the root of your screen");
-
+        if (!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
+            throw new RuntimeException("You should use AnchorPane as the root of your screen");
         return node;
     }
 
@@ -97,6 +102,4 @@ public class MainScreensController extends Observable {
     public void showNewLeftScreen(String fxmlPath) {
         ((BorderPane) root).setLeft(createScreen(fxmlPath));
     }
-
-
 }
