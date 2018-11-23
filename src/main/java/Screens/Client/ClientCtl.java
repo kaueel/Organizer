@@ -1,18 +1,21 @@
 package Screens.Client;
 
 import Controllers.DataController;
-import Controllers.MainScreensController;
+import Controllers.Screen;
 import Models.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ClientCtl {
+public class ClientCtl extends Screen {
     ObservableList<ClientType> typesOfClient;
     private DataController mDataController = DataController.getInstance();
     @FXML
@@ -91,18 +94,25 @@ public class ClientCtl {
         client.setEmail(ClientEmailField.getText());
         client.setPhone(ClientPhoneField.getText());
         //Verifiyng clientType
-        if (clientType.getSelectedToggle() == radioPerson){
+        if (clientType.getSelectedToggle() == radioPerson) {
             client.setClientTypeByClientTypeId(typesOfClient.get(0));
-        }
-        else
+        } else
             client.setClientTypeByClientTypeId(typesOfClient.get(1));
         mDataController.saveObject(client);
+    }
+
+    public ResourceBundle getResources() {
+        return resources;
+    }
+
+    public void setResources(ResourceBundle resources) {
+        this.resources = resources;
     }
 
     @FXML
     void initialize() {
         typesOfClient = (ObservableList<ClientType>) mDataController.getAllObjectsOfType(ClientType.class);
-        if (typesOfClient.isEmpty()){
+        if (typesOfClient.isEmpty()) {
             ClientType pessoaFisica = new ClientType();
             pessoaFisica.setName("Pessoa Física");
             typesOfClient.add(pessoaFisica);

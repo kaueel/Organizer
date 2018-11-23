@@ -1,8 +1,5 @@
 package Screens.Employees;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
@@ -12,14 +9,16 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class EmployeesCtl extends Screen {
     private MainScreensController mainScreensController = MainScreensController.getInstance();
     private DataController dataController = DataController.getInstance();
-    private ObservableList<Employee> employees =  FXCollections.observableArrayList();
+    private ObservableList<Employee> employees = FXCollections.observableArrayList();
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -41,20 +40,22 @@ public class EmployeesCtl extends Screen {
     private TableView<Employee> employeesTable;
 
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    @FXML
+        // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-
         employees = (ObservableList<Employee>) dataController.getAllObjectsOfType(Employee.class);
 
         rowEmployeeName.setCellValueFactory(new PropertyValueFactory<>("name"));
         rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("position"));
         employeesTable.setItems(employees);
+
     }
 
+
     @FXML
-    void callEmployeeScreen(){
-     mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
+    void callEmployeeScreen() {
+        mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
 
     }
 }
