@@ -47,7 +47,6 @@ public class Address {
     }
 
 
-
     @Basic
     @Column(name = "Address", nullable = false, length = 50)
     public String getAddress() {

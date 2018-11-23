@@ -6,7 +6,7 @@
     -fx-background-color: #fff;
 }
 
-.button{
+.button {
     -fx-background-color: #204370;
     -fx-text-fill: #fff;
     -fx-opacity: 0.9;
@@ -16,7 +16,7 @@
     -fx-text-overrun: 'clip';
 }
 
-.gridForm{
+.gridForm {
     -fx-alignment: 'top_center';
     -fx-hgap: 30;
     -fx-background-color: fff;

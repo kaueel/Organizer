@@ -29,7 +29,7 @@
                         <Insets />
                     </GridPane.margin>
                 </Button>
-                <TableView fx:id="clientsTable" GridPane.columnSpan="5" GridPane.rowIndex="1">
+                <TableView fx:id="clientsTable" onMouseClicked="#setCurrentClient" GridPane.columnSpan="5" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="rowClientName" prefWidth="295.0" text="Name" />
                         <TableColumn fx:id="rowClientPhone" prefWidth="157.0" text="Phone" />
