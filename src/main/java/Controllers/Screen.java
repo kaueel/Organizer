@@ -9,11 +9,11 @@ import java.awt.*;
 
 
 public class Screen {
-    private Client currentClient;
-    private Employee currentEmployee;
-    private LawSuit currentLawsuit;
-    private Event currentEvent;
-    private Meeting currentMeeting;
+    private static Client currentClient;
+    private static Employee currentEmployee;
+    private static LawSuit currentLawsuit;
+    private static Event currentEvent;
+    private static Meeting currentMeeting;
 
     public Employee getCurrentEmployee() {
         return currentEmployee;
