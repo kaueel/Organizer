@@ -1,9 +1,6 @@
 package Controllers;
 
-import Models.Client;
-import Models.Employee;
-import Models.LawSuit;
-import Models.Meeting;
+import Models.*;
 
 import java.awt.*;
 
@@ -13,6 +10,7 @@ public class Screen {
     private static Employee currentEmployee;
     private static LawSuit currentLawsuit;
     private static Event currentEvent;
+    private static DocumentTemplates currentdocumentTemplates;
     private static Meeting currentMeeting;
 
     public Employee getCurrentEmployee() {
@@ -64,5 +62,11 @@ public class Screen {
         this.currentEvent = currentEvent;
     }
 
+    public static DocumentTemplates getCurrentdocumentTemplates() {
+        return currentdocumentTemplates;
+    }
 
+    public static void setCurrentdocumentTemplates(DocumentTemplates currentdocumentTemplates) {
+        Screen.currentdocumentTemplates = currentdocumentTemplates;
+    }
 }
