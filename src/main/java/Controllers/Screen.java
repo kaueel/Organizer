@@ -12,6 +12,32 @@ public class Screen {
     private static Event currentEvent;
     private static DocumentTemplates currentdocumentTemplates;
     private static Meeting currentMeeting;
+    private static boolean isEdition = false;
+    private static Class typeOfLastSettedClass;
+
+    public static DocumentTemplates getCurrentdocumentTemplates() {
+        return currentdocumentTemplates;
+    }
+
+    public static void setCurrentdocumentTemplates(DocumentTemplates currentdocumentTemplates) {
+        Screen.currentdocumentTemplates = currentdocumentTemplates;
+    }
+
+    public static Class getTypeOfLastSettedClass() {
+        return typeOfLastSettedClass;
+    }
+
+    public static void setTypeOfLastSettedClass(Class typeOfLastSettedClass) {
+        Screen.typeOfLastSettedClass = typeOfLastSettedClass;
+    }
+
+    public boolean getIsEdition() {
+        return isEdition;
+    }
+
+    public void setIsEdition(boolean isEdition) {
+        Screen.isEdition = isEdition;
+    }
 
     public Employee getCurrentEmployee() {
         return currentEmployee;
@@ -28,7 +54,6 @@ public class Screen {
     public void setCurrentMeeting(Meeting currentMeeting) {
         this.currentMeeting = currentMeeting;
     }
-
 
     public Client getCurrentClient() {
         return currentClient;
@@ -60,13 +85,5 @@ public class Screen {
 
     public void setCurrentEvent(Event currentEvent) {
         this.currentEvent = currentEvent;
-    }
-
-    public static DocumentTemplates getCurrentdocumentTemplates() {
-        return currentdocumentTemplates;
-    }
-
-    public static void setCurrentdocumentTemplates(DocumentTemplates currentdocumentTemplates) {
-        Screen.currentdocumentTemplates = currentdocumentTemplates;
     }
 }

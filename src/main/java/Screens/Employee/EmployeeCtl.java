@@ -1,6 +1,7 @@
 package Screens.Employee;
 
 import Controllers.DataController;
+import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.Employee;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.util.ResourceBundle;
 
 
 public class EmployeeCtl extends Screen {
+    private MainScreensController mainScreensController = MainScreensController.getInstance();
     private DataController mDataController = DataController.getInstance();
     @FXML
     private ResourceBundle resources;
@@ -57,9 +59,14 @@ public class EmployeeCtl extends Screen {
         employee.setSalary(EmployeeSalaryField.getText());
         employee.setPhone(EmployeePhoneField.getText());
         employee.setAccessLevel(1);
-
-
         mDataController.saveObject(employee);
+        callEmployeesScreen();
+    }
+
+
+    @FXML
+    void callEmployeesScreen() {
+        mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
     }
 
     @FXML
