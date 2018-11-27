@@ -2,16 +2,15 @@ package Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.lang.InstantiationException;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -134,15 +133,31 @@ public class DataController {
         return objList;
     }
 
-    private void executeTransaction(Transaction transaction) {
+
+    public Object getObjectWithValue(Class objectClass, String fieldName, String value) {
+        Object object = null;
         try {
-            transaction.commit();
-        } catch (HibernateException e) {
-            if (transaction != null) {
-                transaction.rollback();
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+            Criteria criteria = session.createCriteria(objectClass);
+            object = criteria.add(Restrictions.eq(fieldName, value)).uniqueResult();
+            executeTransaction(transaction);
+            session.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return object;
+    }
+
+        private void executeTransaction (Transaction transaction){
+            try {
+                transaction.commit();
+            } catch (HibernateException e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
             }
-            e.printStackTrace();
         }
     }
-}
 

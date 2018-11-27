@@ -24,7 +24,7 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#callClientScreen" prefHeight="25.0" styleClass="button" stylesheets="@../globalstyle.css" text="New Client" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" styleClass="button" stylesheets="@../globalstyle.css" text="New Client" GridPane.columnIndex="4" GridPane.halignment="CENTER">
                     <GridPane.margin>
                         <Insets />
                     </GridPane.margin>
