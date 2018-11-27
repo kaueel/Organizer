@@ -1,12 +1,8 @@
-package Tests;
-
 import Screens.Toolbar.Toolbar;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Observable;
-
-import static org.junit.Assert.*;
 
 public class ToolbarTest {
 
