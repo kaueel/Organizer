@@ -1,12 +1,8 @@
-package Tests;
-
 import Models.Address;
 import Models.Client;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.validation.constraints.Null;
 
 public class ClientTest {
 

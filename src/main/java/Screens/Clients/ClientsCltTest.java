@@ -1,6 +1,7 @@
 package Screens.Clients;
 
 import Screens.Clients.ClientsClt;
+import javafx.fxml.LoadException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,9 +28,9 @@ public class ClientsCltTest {
     public void callClientScreen() {
         try {
             control.callClientScreen();
-        }catch (ExceptionInInitializerError e){
-
         }
+        catch (ExceptionInInitializerError e){ }
+        catch (NullPointerException e) { }
     }
 
     @Test

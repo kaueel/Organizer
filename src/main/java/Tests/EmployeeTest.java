@@ -3,10 +3,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
-import static org.junit.Assert.*;
-
 public class EmployeeTest {
 
     private Employee employee;

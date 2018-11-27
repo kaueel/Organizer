@@ -1,15 +1,7 @@
-package Tests;
-
 import Controllers.MainScreensController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.sql.Timestamp;
-import java.util.Observable;
-import java.util.Observer;
-
-import static org.junit.Assert.*;
 
 public class MainScreensControllerTest {
 
