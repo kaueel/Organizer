@@ -13,6 +13,15 @@ public class Screen {
     private static DocumentTemplates currentdocumentTemplates;
     private static Meeting currentMeeting;
     private static boolean isEdition = false;
+    private static String typeOfLastSettedEntity ;
+    public static String getTypeOfLastSettedEntity() {
+        return typeOfLastSettedEntity;
+    }
+
+    public static void setTypeOfLastSettedEntity(String typeOfLastSettedEntity) {
+        Screen.typeOfLastSettedEntity = typeOfLastSettedEntity;
+    }
+
 
     public static DocumentTemplates getCurrentdocumentTemplates() {
         return currentdocumentTemplates;

@@ -78,7 +78,6 @@ public class ClientCtl extends Screen {
         city.setCity(clientCityField.getText());
         city.setUf(state.getSelectionModel().getSelectedItem().getUf());
         mDataController.saveObject(city);
-
         address.setCityByCityId(city);
         address.setStateByStateId(state.getSelectionModel().getSelectedItem());
         address.setDistrict(clientDistrictField.getText());
@@ -103,12 +102,10 @@ public class ClientCtl extends Screen {
         callClientsScreen();
     }
 
-
     @FXML
     void callClientsScreen() {
         super.setCurrentClient(null);
         mainScreensController.showNewMainScreen("/Screens/Clients/clients.fxml");
-
     }
 
     public ResourceBundle getResources() {
@@ -131,7 +128,6 @@ public class ClientCtl extends Screen {
             pessoaFisica.setName("Pessoa Física");
             typesOfClient.add(pessoaFisica);
             mDataController.saveObject(pessoaFisica);
-
             ClientType pessoaJuridica = new ClientType();
             pessoaJuridica.setName("Pessoa Jurídica");
             typesOfClient.add(pessoaJuridica);
@@ -139,7 +135,6 @@ public class ClientCtl extends Screen {
             if (getCurrentClient() != null) {
                 clientCepField.setText(super.getCurrentClient().getAddressByAddressId().getPostalCode());
                 clientAdressNumberField.setText(super.getCurrentClient().getAddressByAddressId().getAddress2());
-
                 clientCityField.setText(super.getCurrentClient().getAddressByAddressId().getCityByCityId().getCity());
                 ClientCpfField.setText(super.getCurrentClient().getDocumentNumber());
                 ClientEmailField.setText(super.getCurrentClient().getEmail());
@@ -147,9 +142,7 @@ public class ClientCtl extends Screen {
                 ClientNameField.setText(super.getCurrentClient().getName());
                 ClientPhoneField.setText(super.getCurrentClient().getPhone());
                 clientStreetField.setText(super.getCurrentClient().getAddressByAddressId().getAddress());
-
             }
         }
-
     }
 }
