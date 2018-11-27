@@ -9,6 +9,7 @@ public class Client {
     private String name;
     private String email;
     private String documentNumber;
+    private String addressNumber;
     private Address addressByAddressId;
     private String phone;
     private ClientType clientTypeByClientTypeId;
@@ -24,7 +25,6 @@ public class Client {
         this.id = id;
     }
 
-
     @ManyToOne
     @JoinColumn(name = "ClientTypeID", referencedColumnName = "ID", nullable = false)
     public ClientType getClientTypeByClientTypeId() {
@@ -34,7 +34,6 @@ public class Client {
     public void setClientTypeByClientTypeId(ClientType clientTypeByClientTypeId) {
         this.clientTypeByClientTypeId = clientTypeByClientTypeId;
     }
-
 
     @Basic
     @Column(name = "Phone", nullable = false, length = 200)
@@ -46,7 +45,6 @@ public class Client {
         this.phone = phone;
     }
 
-
     @Basic
     @Column(name = "Name", nullable = false, length = 200)
     public String getName() {
@@ -56,6 +54,21 @@ public class Client {
     public void setName(String name) {
         this.name = name;
     }
+
+
+
+    @Basic
+    @Column(name = "AddressNumber", nullable = true, length = 200)
+    public String getAddressNumber() {
+        return addressNumber;
+    }
+
+    public void setAddressNumber(String mnumber) {
+        this.addressNumber = mnumber;
+    }
+
+
+
 
     @Basic
     @Column(name = "Email", nullable = false, length = 200)

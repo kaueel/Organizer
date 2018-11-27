@@ -1,15 +1,14 @@
 package Screens.Client;
 
 import Controllers.DataController;
+import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +16,10 @@ import java.util.ResourceBundle;
 
 public class ClientCtl extends Screen {
     ObservableList<ClientType> typesOfClient;
+    private MainScreensController mainScreensController = MainScreensController.getInstance();
+
     private DataController mDataController = DataController.getInstance();
+
     @FXML
     private ResourceBundle resources;
 
@@ -49,10 +51,9 @@ public class ClientCtl extends Screen {
     private TextField clientCityField;
 
     @FXML
-    private TextField clientAdressStateField;
+    private ComboBox<State> state;
 
     @FXML
-
     private TextField clientCepField;
 
     @FXML
@@ -71,16 +72,16 @@ public class ClientCtl extends Screen {
     void SaveClient(ActionEvent event) {
 
         //Creating Address
+
         City city = new City();
-        State state = new State();
+
         Address address = new Address();
         city.setCity(clientCityField.getText());
-        state.setState(clientAdressStateField.getText());
-        mDataController.saveObject(state);
+        city.setUf(state.getSelectionModel().getSelectedItem().getUf());
         mDataController.saveObject(city);
 
         address.setCityByCityId(city);
-        address.setStateByStateId(state);
+        address.setStateByStateId(state.getSelectionModel().getSelectedItem());
         address.setDistrict(clientDistrictField.getText());
         address.setPostalCode(clientCepField.getText());
         address.setAddress(clientStreetField.getText());
@@ -89,6 +90,7 @@ public class ClientCtl extends Screen {
         //Saving new client
         Client client = new Client();
         client.setAddressByAddressId(address);
+        client.setAddressNumber(clientAdressNumberField.toString());
         client.setDocumentNumber(ClientCpfField.getText());
         client.setName(ClientNameField.getText());
         client.setEmail(ClientEmailField.getText());
@@ -99,6 +101,15 @@ public class ClientCtl extends Screen {
         } else
             client.setClientTypeByClientTypeId(typesOfClient.get(1));
         mDataController.saveObject(client);
+        callClientsScreen();
+    }
+
+
+    @FXML
+    void callClientsScreen() {
+        super.setCurrentClient(null);
+        mainScreensController.showNewMainScreen("/Screens/Clients/clients.fxml");
+
     }
 
     public ResourceBundle getResources() {
@@ -111,7 +122,11 @@ public class ClientCtl extends Screen {
 
     @FXML
     void initialize() {
+
         typesOfClient = (ObservableList<ClientType>) mDataController.getAllObjectsOfType(ClientType.class);
+        ObservableList<State> states = (ObservableList<State>) DataController.getInstance().getAllObjectsOfType(State.class);
+        state.getItems().addAll(states);
+        state.getSelectionModel().selectFirst();
         if (typesOfClient.isEmpty()) {
             ClientType pessoaFisica = new ClientType();
             pessoaFisica.setName("Pessoa Física");
@@ -122,7 +137,19 @@ public class ClientCtl extends Screen {
             pessoaJuridica.setName("Pessoa Jurídica");
             typesOfClient.add(pessoaJuridica);
             mDataController.saveObject(pessoaJuridica);
+            if(getCurrentClient() != null){
+                clientCepField.setText(super.getCurrentClient().getAddressByAddressId().getPostalCode());
+                clientAdressNumberField.setText(super.getCurrentClient().getAddressByAddressId().getAddress2());
 
+                clientCityField.setText(super.getCurrentClient().getAddressByAddressId().getCityByCityId().getCity());
+                ClientCpfField.setText(super.getCurrentClient().getDocumentNumber());
+                ClientEmailField.setText(super.getCurrentClient().getEmail());
+                clientDistrictField.setText(super.getCurrentClient().getAddressByAddressId().getDistrict());
+                ClientNameField.setText(super.getCurrentClient().getName());
+                ClientPhoneField.setText(super.getCurrentClient().getPhone());
+                clientStreetField.setText(super.getCurrentClient().getAddressByAddressId().getAddress());
+
+            }
         }
 
     }

@@ -53,6 +53,7 @@ public class ClientsClt extends Screen {
 
     @FXML
     void callClientScreen() {
+        super.setCurrentClient(null);
         mainScreensController.showNewMainScreen("/Screens/Client/client.fxml");
 
     }

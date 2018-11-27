@@ -12,6 +12,16 @@ public class Screen {
     private static Event currentEvent;
     private static DocumentTemplates currentdocumentTemplates;
     private static Meeting currentMeeting;
+    private static boolean isEdition = false;
+
+    public boolean getIsEdition() {
+        return isEdition;
+    }
+
+    public void setIsEdition(boolean isEdition) {
+        Screen.isEdition = isEdition;
+    }
+
 
     public Employee getCurrentEmployee() {
         return currentEmployee;
