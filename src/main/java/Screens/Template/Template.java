@@ -47,7 +47,7 @@ public class Template extends Screen {
     private javafx.scene.control.TextField nameVariable;
 
     @FXML
-    private void initialize() {
+    void initialize() {
 
         SortedList<String> sortedList = new SortedList(filteredList);
         sortedList.setComparator(new Comparator<String>() {
@@ -92,7 +92,7 @@ public class Template extends Screen {
         mainScreensController.showNewMainScreen("/Screens/Templates/templates.fxml");
     }
 
-    private void SaveTemplate(){
+    void SaveTemplate(){
 
         if(getCurrentdocumentTemplates() == null)
             setCurrentdocumentTemplates(new DocumentTemplates());
