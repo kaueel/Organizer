@@ -1,6 +1,7 @@
 package Screens.Employee;
 
 import Controllers.DataController;
+import Controllers.Screen;
 import Models.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class EmployeeCtl {
+public class EmployeeCtl extends Screen {
     private DataController mDataController = DataController.getInstance();
     @FXML
     private ResourceBundle resources;

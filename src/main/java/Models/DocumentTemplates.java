@@ -1,6 +1,7 @@
 package Models;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -8,6 +9,7 @@ public class DocumentTemplates {
     private Integer id;
     private String name;
     private String documentText;
+    private Date lastUpdate;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,13 +33,23 @@ public class DocumentTemplates {
     }
 
     @Basic
-    @Column(name = "DocumentText", nullable = false, length = 10000)
+    @Column(name = "DocumentText", nullable = false, columnDefinition="TEXT")
     public String getDocumentText() {
         return documentText;
     }
 
     public void setDocumentText(String documentText) {
         this.documentText = documentText;
+    }
+
+    @Basic
+    @Column(name = "LastUpdate", nullable = false)
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     @Override

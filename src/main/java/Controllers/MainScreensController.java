@@ -30,7 +30,6 @@ public class MainScreensController extends Observable {
         }
     }
 
-
     private MainScreensController() {
         titlesMap.put("/Screens/HelloWord/HelloWord.fxml", "Hello Word");
         titlesMap.put("/Screens/Employees/employees.fxml", "Funcionários");
@@ -75,6 +74,7 @@ public class MainScreensController extends Observable {
 
     public void showNewMainScreen(String fxmlPath) {
         ((BorderPane) root).setCenter(createScreen(fxmlPath));
+        setChanged();
         notifyObservers(titlesMap.get(fxmlPath));
     }
 
@@ -85,6 +85,7 @@ public class MainScreensController extends Observable {
         } else {
             currentScreenTitle = titlesMap.get(fxmlPath);
         }
+        setChanged();
         notifyObservers();
         if (!node.getClass().getName().equals("javafx.scene.layout.AnchorPane"))
             throw new RuntimeException("You should use AnchorPane as the root of your screen");
