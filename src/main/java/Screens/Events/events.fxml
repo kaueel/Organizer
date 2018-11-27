@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Employees.EmployeesCtl">
+<AnchorPane style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Events.EventsClt">
     <children>
         <GridPane prefWidth="1050.0" style="-fx-background-color: fff;" stylesheets="@../globalstyle.css" vgap="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
@@ -20,20 +20,19 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewEmployee" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEmployeeScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="New Employee" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEventScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="New Event" GridPane.halignment="LEFT">
                     <GridPane.margin>
                         <Insets right="40.0" />
                     </GridPane.margin>
                 </Button>
-                <TableView fx:id="employeesTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../globalstyle.css" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <TableView fx:id="meetingTable" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn fx:id="rowEmployeeName" maxWidth="500.0" prefWidth="346.0" text="Name" />
-                        <TableColumn fx:id="rowEmployeePhone" maxWidth="500.0" prefWidth="346.0" text="Phone" />
-                        <TableColumn fx:id="rowEmployeeCargo" maxWidth="500.0" minWidth="0.0" prefWidth="346.0" text="Position" />
+                        <TableColumn fx:id="rowEventSubject" maxWidth="500.0" prefWidth="345.0" text="Title" />
+                        <TableColumn fx:id="rowClientName" maxWidth="500.0" prefWidth="141.0" text="Client" />
+                  <TableColumn fx:id="rowLawSuitTitle" maxWidth="500.0" prefWidth="141.0" text="Process" />
+                  <TableColumn fx:id="rowLocal" maxWidth="500.0" prefWidth="141.0" text="Local" />
+                  <TableColumn fx:id="rowDateTime" maxWidth="500.0" prefWidth="141.0" text="Date &amp; Time" />
                     </columns>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
                <padding>
                   <Insets right="20.0" />
                </padding>

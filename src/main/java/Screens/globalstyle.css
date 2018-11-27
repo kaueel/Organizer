@@ -30,7 +30,7 @@
 
 .gridForm{
     -fx-alignment: 'top_center';
-    -fx-hgap: 30;
+    -fx-h-gap: 30;
     -fx-background-color: fff;
 }
 

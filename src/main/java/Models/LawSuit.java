@@ -41,4 +41,9 @@ public class LawSuit {
     public void setClientByClientId(Client clientByClientId) {
         this.clientByClientId = clientByClientId;
     }
+
+    @Override
+    public String toString() {
+        return "";
+    }
 }

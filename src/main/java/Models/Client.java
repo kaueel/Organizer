@@ -103,4 +103,9 @@ public class Client {
     public void setAddressByAddressId(Address addressByAddressId) {
         this.addressByAddressId = addressByAddressId;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

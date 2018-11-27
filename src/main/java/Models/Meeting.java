@@ -2,16 +2,18 @@ package Models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Meeting {
     private Integer id;
-    private Timestamp startTime;
+    private Date dateTime;
     private String subject;
     private String description;
     private LawSuit lawSuitByLawSuitId;
     private Client clientByClientId;
+    private String local;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +27,13 @@ public class Meeting {
     }
 
     @Basic
-    @Column(name = "StartTime", nullable = false)
-    public Timestamp getStartTime() {
-        return startTime;
+    @Column(name = "DateTime", nullable = false)
+    public Date getDateTime() {
+        return dateTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
-        this.startTime = startTime;
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 
     @Basic
@@ -60,14 +62,14 @@ public class Meeting {
         if (o == null || getClass() != o.getClass()) return false;
         Meeting meeting = (Meeting) o;
         return Objects.equals(id, meeting.id) &&
-                Objects.equals(startTime, meeting.startTime) &&
+                Objects.equals(dateTime, meeting.dateTime) &&
                 Objects.equals(subject, meeting.subject) &&
                 Objects.equals(description, meeting.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startTime, subject, description);
+        return Objects.hash(id, dateTime, subject, description);
     }
 
     @ManyToOne
@@ -89,4 +91,10 @@ public class Meeting {
     public void setClientByClientId(Client clientByClientId) {
         this.clientByClientId = clientByClientId;
     }
+
+    @Basic
+    @Column(name = "Local", nullable = false)
+    public String getLocal() { return local; }
+
+    public void setLocal(String local) { this.local = local; }
 }
