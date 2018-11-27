@@ -7,6 +7,7 @@ import java.util.Objects;
 public class City {
     private Integer id;
     private String city;
+    private String uf;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +19,17 @@ public class City {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Basic
+    @Column(name = "Uf", nullable = false, length = 50)
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
 
     @Basic
     @Column(name = "City", nullable = false, length = 50)

@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefWidth="900.0" style="-fx-background-color: white;"
-            xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Screens.Client.ClientCtl">
+<AnchorPane prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Client.ClientCtl">
     <children>
         <GridPane style="-fx-background-color: fff;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"
                   AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
@@ -155,7 +155,6 @@
                                 <Insets left="10.0"/>
                             </padding>
                         </Label>
-                        <TextField fx:id="clientAdressStateField" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
                         <Label text="CEP" textFill="#6f6f6f" GridPane.columnIndex="2" GridPane.rowIndex="4">
                             <font>
                                 <Font size="16.0"/>
@@ -165,6 +164,7 @@
                             </GridPane.margin>
                         </Label>
                         <TextField fx:id="clientCepField" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                        <ComboBox fx:id="state" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3"/>
                     </children>
                 </GridPane>
                 <Button fx:id="btnSaveClient" mnemonicParsing="false" onAction="#SaveClient" text="Salvar"

@@ -7,6 +7,8 @@ import java.util.Objects;
 public class State {
     private Integer id;
     private String stateName;
+    private Integer regiao;
+    private String uf;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,14 +21,37 @@ public class State {
         this.id = id;
     }
 
+
     @Basic
-    @Column(name = "State", nullable = false, length = 50)
+    @Column(name = "Regiao", nullable = true)
+    public Integer getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(Integer mregiao) {
+        this.regiao = mregiao;
+    }
+
+
+    @Basic
+    @Column(name = "Nome", nullable = true, length = 50)
     public String getState() {
         return stateName;
     }
 
-    public void setState(String countryName) {
-        this.stateName = countryName;
+    public void setState(String stateName) {
+        this.stateName = stateName;
+    }
+
+
+    @Basic
+    @Column(name = "Uf", nullable = false, length = 50)
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String ufValue) {
+        this.uf = ufValue;
     }
 
     @Override
@@ -43,4 +68,9 @@ public class State {
         return Objects.hash(id, stateName);
     }
 
+
+    @Override
+    public String toString() {
+        return this.getState();
+    }
 }
