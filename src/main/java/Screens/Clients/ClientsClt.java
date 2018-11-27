@@ -32,8 +32,10 @@ public class ClientsClt extends Screen {
 
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientName;
+
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientPhone;
+
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientDocument;
 
@@ -48,7 +50,6 @@ public class ClientsClt extends Screen {
         rowClientDocument.setCellValueFactory(new PropertyValueFactory<>("email"));
         Client example = (Client) dataController.getObjectWithValue(Client.class, "documentNumber", "6666");
         clientsTable.setItems(clients);
-
     }
 
     @FXML
