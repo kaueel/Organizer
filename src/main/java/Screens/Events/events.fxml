@@ -28,10 +28,10 @@
                 <TableView fx:id="meetingTable" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="rowEventSubject" maxWidth="500.0" prefWidth="345.0" text="Title" />
-                        <TableColumn fx:id="rowClientName" maxWidth="500.0" prefWidth="141.0" text="Client" />
-                  <TableColumn fx:id="rowLawSuitTitle" maxWidth="500.0" prefWidth="141.0" text="Process" />
-                  <TableColumn fx:id="rowLocal" maxWidth="500.0" prefWidth="141.0" text="Local" />
-                  <TableColumn fx:id="rowDateTime" maxWidth="500.0" prefWidth="141.0" text="Date &amp; Time" />
+                        <TableColumn fx:id="rowClientName" maxWidth="500.0" prefWidth="176.25" text="Client" />
+                  <TableColumn fx:id="rowLawSuitTitle" maxWidth="500.0" prefWidth="176.25" text="Process" />
+                  <TableColumn fx:id="rowLocal" maxWidth="500.0" prefWidth="176.25" text="Local" />
+                  <TableColumn fx:id="rowDateTime" maxWidth="500.0" prefWidth="176.25" text="Date &amp; Time" />
                     </columns>
                <padding>
                   <Insets right="20.0" />
