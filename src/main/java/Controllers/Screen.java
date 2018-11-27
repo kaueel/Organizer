@@ -13,6 +13,7 @@ public class Screen {
     private static DocumentTemplates currentdocumentTemplates;
     private static Meeting currentMeeting;
     private static boolean isEdition = false;
+    private static Class typeOfLastSettedClass;
 
     public static DocumentTemplates getCurrentdocumentTemplates() {
         return currentdocumentTemplates;
@@ -20,6 +21,14 @@ public class Screen {
 
     public static void setCurrentdocumentTemplates(DocumentTemplates currentdocumentTemplates) {
         Screen.currentdocumentTemplates = currentdocumentTemplates;
+    }
+
+    public static Class getTypeOfLastSettedClass() {
+        return typeOfLastSettedClass;
+    }
+
+    public static void setTypeOfLastSettedClass(Class typeOfLastSettedClass) {
+        Screen.typeOfLastSettedClass = typeOfLastSettedClass;
     }
 
     public boolean getIsEdition() {
