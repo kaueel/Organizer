@@ -29,7 +29,7 @@ public class TemplatesTest {
     @Test
     public void setCurrentDocumentTemplates() {
         try {
-            templates.setCurrentDocumentTemplates();
+            templates.setCurrentDocumentTemplates(null);
         } catch (NullPointerException e) { }
     }
 }
