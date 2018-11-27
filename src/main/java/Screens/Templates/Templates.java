@@ -13,6 +13,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -83,12 +84,13 @@ public class Templates extends Screen {
     }
 
     @FXML
-    void setCurrentDocumentTemplates(){
-
-        DocumentTemplates selectedDocumentTemplates = documentTemplatesTable.getSelectionModel().getSelectedItem();
-        if(selectedDocumentTemplates != null) {
-            super.setCurrentdocumentTemplates(selectedDocumentTemplates);
-            mainScreensController.showNewMainScreen("/Screens/Template/template.fxml");
+    void setCurrentDocumentTemplates(MouseEvent click) {
+        if (click.getClickCount() == 2) {
+            DocumentTemplates selectedDocumentTemplates = documentTemplatesTable.getSelectionModel().getSelectedItem();
+            if (selectedDocumentTemplates != null) {
+                super.setCurrentdocumentTemplates(selectedDocumentTemplates);
+                mainScreensController.showNewMainScreen("/Screens/Template/template.fxml");
+            }
         }
     }
 }
