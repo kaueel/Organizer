@@ -8,8 +8,6 @@ import org.junit.Test;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import static org.junit.Assert.*;
-
 public class MeetingTest {
 
     private Meeting meeting;
