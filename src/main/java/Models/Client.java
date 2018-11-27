@@ -56,7 +56,6 @@ public class Client {
     }
 
 
-
     @Basic
     @Column(name = "AddressNumber", nullable = true, length = 200)
     public String getAddressNumber() {
@@ -66,8 +65,6 @@ public class Client {
     public void setAddressNumber(String mnumber) {
         this.addressNumber = mnumber;
     }
-
-
 
 
     @Basic

@@ -4,7 +4,6 @@ import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.*;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -137,7 +136,7 @@ public class ClientCtl extends Screen {
             pessoaJuridica.setName("Pessoa Jurídica");
             typesOfClient.add(pessoaJuridica);
             mDataController.saveObject(pessoaJuridica);
-            if(getCurrentClient() != null){
+            if (getCurrentClient() != null) {
                 clientCepField.setText(super.getCurrentClient().getAddressByAddressId().getPostalCode());
                 clientAdressNumberField.setText(super.getCurrentClient().getAddressByAddressId().getAddress2());
 

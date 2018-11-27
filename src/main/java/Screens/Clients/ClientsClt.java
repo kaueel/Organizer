@@ -59,7 +59,7 @@ public class ClientsClt extends Screen {
     }
 
     @FXML
-    void setCurrentClient(){
+    void setCurrentClient() {
         super.setCurrentClient(clientsTable.getSelectionModel().getSelectedItem());
     }
 }
