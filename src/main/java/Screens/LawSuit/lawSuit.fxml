@@ -32,7 +32,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <TextField fx:id="LawSuitNumber" promptText="Numero do processo" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                <TextField
+                        fx:id="LawSuitNumber"
+                        promptText="Numero do processo"
+                        GridPane.columnSpan="3"
+                        GridPane.rowIndex="1">
                     <opaqueInsets>
                         <Insets left="30.0" />
                     </opaqueInsets>

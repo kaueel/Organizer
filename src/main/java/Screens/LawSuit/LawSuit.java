@@ -6,13 +6,16 @@ import Controllers.Screen;
 import Models.Client;
 import Models.Employee;
 import Models.State;
+import Utils.Validation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class LawSuit extends Screen {
     private boolean isNull = false;
@@ -53,6 +56,10 @@ public class LawSuit extends Screen {
     @FXML
     private ComboBox<Employee> comboEmployee;
 
+    private void insertValidation() {
+        LawSuitNumber.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
+    }
+
     @FXML
     void initialize() {
 
@@ -91,6 +98,8 @@ public class LawSuit extends Screen {
 
             comboEmployee.getSelectionModel().select(indexEmployee);
         }
+
+        insertValidation();
     }
 
 
@@ -103,6 +112,18 @@ public class LawSuit extends Screen {
         }
 
         Client client = (Client) mDataController.getObjectWithValue(Client.class, "documentNumber",  LawSuitClientDocument.getText());
+        if (Validation.isEveryInputFilled(
+                LawSuitClientDocument.getText(),
+                LawSuitOppositorName.getText(),
+                LawSuitOppositorDocument.getText(),
+                LawSuitNumber.getText(),
+                LawSuitTitle.getText(),
+                LawSuitDescription.getText(),
+                LawSuitForum.getText(),
+                LawSuitCourt.getText(),
+                LawSuitType.getText())) {
+
+            Client client = (Client) mDataController.getObjectWithValue(Client.class, "documentNumber", LawSuitClientDocument.getText());
 
         if(client == null)
         {
@@ -141,7 +162,14 @@ public class LawSuit extends Screen {
         else
             mDataController.saveObject(getCurrentLawsuit());
 
-        MainScreensController.getInstance().showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
+            MainScreensController.getInstance().showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
+        } else {
+            Validation.showErrorDialog(
+                    "Oooops...",
+                    "Informações inválidas",
+                    "Parece que há alguma campo sem preencher, volte ao form para validar"
+            );
+        }
     }
 
 }
