@@ -5,13 +5,11 @@ import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.DocumentTemplates;
 import Models.Employee;
+import Models.LawSuit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -43,9 +41,10 @@ public class Templates extends Screen {
     @FXML // fx:id="documentTemplatesTable"
     private TableView<DocumentTemplates> documentTemplatesTable;
 
-
     @FXML
-        // This method is called by the FXMLLoader when initialization is complete
+    private TextField searchfield;
+
+    @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         documentTemplates = (ObservableList<DocumentTemplates>) dataController.getAllObjectsOfType(DocumentTemplates.class);
 
@@ -68,14 +67,11 @@ public class Templates extends Screen {
                     }
                 }
             };
-
             return cell;
         });
 
         documentTemplatesTable.setItems(documentTemplates);
-
     }
-
 
     @FXML
     void callDocumentTemplatesScreen() {
@@ -92,5 +88,22 @@ public class Templates extends Screen {
                 mainScreensController.showNewMainScreen("/Screens/Template/template.fxml");
             }
         }
+    }
+
+    @FXML
+    void search() {
+        String chave = searchfield.getText().toUpperCase();
+        ObservableList<DocumentTemplates> lawSuitsPesquisa = FXCollections.observableArrayList();
+
+        if (!chave.isEmpty()) {
+            for (DocumentTemplates doc : documentTemplates) {
+                if (doc.getName().toUpperCase().contains(chave) || String.valueOf(doc.getLastUpdate()).toUpperCase().contains(chave))
+                    lawSuitsPesquisa.add(doc);
+            }
+        }else{
+            lawSuitsPesquisa.addAll(documentTemplates);
+        }
+
+        documentTemplatesTable.setItems(lawSuitsPesquisa);
     }
 }

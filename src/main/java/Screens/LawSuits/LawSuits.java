@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -45,17 +46,14 @@ public class LawSuits extends Screen {
     @FXML
     private TableColumn<ObservableList<LawSuit>, String> rowlawSuitsPppositeName;
 
-
+    @FXML
+    private TextField searchfield;
 
     @FXML // fx:id="documentTemplatesTable"
     private TableView<LawSuit> lawSuitsTable;
 
-
-    @FXML
-        // This method is called by the FXMLLoader when initialization is complete
+    @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-
-
         LawSuits = (ObservableList<LawSuit>) dataController.getAllObjectsOfType(LawSuit.class);
 
         ArrayList<Integer> itensRemove = new ArrayList<Integer>();
@@ -84,17 +82,12 @@ public class LawSuits extends Screen {
         }
 
         rowlawSuitsNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
-
         rowlawSuitsTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
-
-        rowlawSuitsClientName.setCellValueFactory(new PropertyValueFactory<>("clientByClientId"));
-
-        rowlawSuitsPppositeName.setCellValueFactory(new PropertyValueFactory<>("oppositeName"));
+        rowlawSuitsTitulo.setCellValueFactory(new PropertyValueFactory<>("clientByClientId"));
+        rowlawSuitsTitulo.setCellValueFactory(new PropertyValueFactory<>("oppositeName"));
 
         lawSuitsTable.setItems(LawSuits);
-
     }
-
 
     @FXML
     void callLawSuitScreen() {
@@ -104,12 +97,29 @@ public class LawSuits extends Screen {
 
     @FXML
     void setCurrentLawSuit(){
-
         LawSuit lawSuit = lawSuitsTable.getSelectionModel().getSelectedItem();
         if(lawSuit != null) {
             super.setCurrentLawsuit(lawSuit);
             super.setTypeOfLastSettedClass(LawSuit.class);
             mainScreensController.showNewMainScreen("/Screens/LawSuitsTabs/lawSuitsTabs.fxml");
         }
+    }
+
+    @FXML
+    void search() {
+        String chave = searchfield.getText().toUpperCase();
+        ObservableList<LawSuit> lawSuitsPesquisa = FXCollections.observableArrayList();
+
+        if (!chave.isEmpty()) {
+            for (LawSuit law : LawSuits) {
+                if (law.getNumber().toUpperCase().contains(chave) || law.getTitle().toUpperCase().contains(chave)
+                        || law.getOppositeName().toUpperCase().contains(chave))
+                    lawSuitsPesquisa.add(law);
+            }
+        }else{
+            lawSuitsPesquisa.addAll(LawSuits);
+        }
+
+        lawSuitsTable.setItems(lawSuitsPesquisa);
     }
 }
