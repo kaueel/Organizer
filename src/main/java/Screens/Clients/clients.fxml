@@ -25,7 +25,7 @@
                         <Insets right="40.0" />
                     </GridPane.margin>
                 </Button>
-                <TableView fx:id="clientsTable" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
+                <TableView fx:id="clientsTable" onMouseClicked="#setCurrentClient" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="rowClientName" maxWidth="500.0" prefWidth="345.0" text="Name" />
                         <TableColumn fx:id="rowClientPhone" maxWidth="500.0" prefWidth="345.0" text="Phone" />

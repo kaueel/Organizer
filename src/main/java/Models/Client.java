@@ -104,10 +104,6 @@ public class Client {
         return Objects.hash(id, name, email, addressByAddressId, documentNumber);
     }
 
-    @Override
-    public String toString(){
-        return getName(); //Whatever you want to show
-    }
 
     @ManyToOne
     @JoinColumn(name = "AddressID", referencedColumnName = "ID", nullable = false)

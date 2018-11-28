@@ -67,7 +67,6 @@ public class EventsClt extends Screen {
                     }
                     else {
                         this.setText(format.format(item));
-
                     }
                 }
             };
@@ -79,6 +78,6 @@ public class EventsClt extends Screen {
 
     @FXML
     void callEventScreen() {
-        mainScreensController.showNewMainScreen("/Screens/Client/event.fxml");
+        mainScreensController.showNewMainScreen("/Screens/Event/event.fxml");
     }
 }

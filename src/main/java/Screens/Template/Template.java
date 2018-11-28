@@ -72,8 +72,6 @@ public class Template extends Screen {
                 return data.toLowerCase().contains(lowerCaseSearch);
             });
         });
-
-
     }
 
     @FXML
