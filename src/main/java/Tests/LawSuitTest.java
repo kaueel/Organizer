@@ -1,3 +1,5 @@
+package Tests;
+
 import Models.Client;
 import Models.LawSuit;
 import org.junit.Assert;
@@ -22,8 +24,8 @@ public class LawSuitTest {
 
     @Test
     public void setId() {
-        lawSuit.setId((Integer)12345);
-        Assert.assertEquals((Integer)12345,lawSuit.getId());
+        lawSuit.setId(12345);
+        Assert.assertEquals(12345,lawSuit.getId());
     }
 
     @Test

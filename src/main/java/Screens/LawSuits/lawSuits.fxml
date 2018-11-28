@@ -24,15 +24,15 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewTemplate" mnemonicParsing="false" onAction="#callLawSuitScreen" prefHeight="25.0" prefWidth="99.0" text="Novo template" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                <Button fx:id="btnNewTemplate" mnemonicParsing="false" onAction="#callLawSuitScreen" prefHeight="25.0" prefWidth="99.0" text="Novo processo" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
                     <GridPane.margin>
                         <Insets right="40.0" />
                     </GridPane.margin>
                 </Button>
                 <TableView fx:id="lawSuitsTable" onMouseClicked="#setCurrentLawSuit" GridPane.columnSpan="5" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn fx:id="rowlawSuitsNumber" maxWidth="229.0" minWidth="229.0" prefWidth="229.0" resizable="false"  text="Numero" />
-                        <TableColumn fx:id="rowlawSuitsTitulo" minWidth="-1.0"  prefWidth="449.0" style="-fx-alignment: CENTER-CENTER;" text="Titulo" />
+                        <TableColumn fx:id="rowlawSuitsNumber" maxWidth="229.0" minWidth="229.0" prefWidth="229.0" resizable="false" text="Numero" />
+                        <TableColumn fx:id="rowlawSuitsTitulo" minWidth="-1.0" prefWidth="449.0" style="-fx-alignment: CENTER-CENTER;" text="Titulo" />
                         <TableColumn fx:id="rowlawSuitsClientName" maxWidth="229.0" minWidth="229.0" prefWidth="229.0" resizable="false" style="-fx-alignment: CENTER-CENTER;" text="Nome do Cliente" />
                         <TableColumn fx:id="rowlawSuitsPppositeName" maxWidth="229.0" minWidth="229.0" prefWidth="229.0" resizable="false" style="-fx-alignment: CENTER-CENTER;" text="Nome da Parte" />
                     </columns>
