@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.EmployeeTabs.EmployeeTabs">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Processos">
+              <fx:include source="../LawSuits/lawSuits.fxml"/>
+          </Tab>
+          <Tab text="Eventos">
+          </Tab>
+          <Tab text="Documentos do funcionário">
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
