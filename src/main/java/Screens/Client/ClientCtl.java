@@ -132,7 +132,8 @@ public class ClientCtl extends Screen {
             pessoaJuridica.setName("Pessoa Jurídica");
             typesOfClient.add(pessoaJuridica);
             mDataController.saveObject(pessoaJuridica);
-            if (getCurrentClient() != null) {
+        }
+            if (super.getCurrentClient() != null) {
                 clientCepField.setText(super.getCurrentClient().getAddressByAddressId().getPostalCode());
                 clientAdressNumberField.setText(super.getCurrentClient().getAddressByAddressId().getAddress2());
                 clientCityField.setText(super.getCurrentClient().getAddressByAddressId().getCityByCityId().getCity());
@@ -145,4 +146,4 @@ public class ClientCtl extends Screen {
             }
         }
     }
-}
+
