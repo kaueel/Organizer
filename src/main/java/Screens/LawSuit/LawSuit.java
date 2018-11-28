@@ -6,10 +6,12 @@ import Controllers.Screen;
 import Models.Client;
 import Models.Employee;
 import Models.State;
+import Utils.Validation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,6 +55,10 @@ public class LawSuit extends Screen {
     @FXML
     private ComboBox<Employee> comboEmployee;
 
+    private void insertValidation() {
+        LawSuitNumber.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
+    }
+
     @FXML
     void initialize() {
 
@@ -60,15 +66,15 @@ public class LawSuit extends Screen {
         comboEmployee.getItems().addAll(employees);
         comboEmployee.getSelectionModel().selectFirst();
 
-        if( getCurrentLawsuit() == null){
+        if (getCurrentLawsuit() == null) {
             setCurrentLawsuit(new Models.LawSuit());
             getCurrentLawsuit().setClientByClientId(getCurrentClient());
 
 
-            if(getCurrentClient() != null)
+            if (getCurrentClient() != null)
                 LawSuitClientDocument.setText(getCurrentClient().getDocumentNumber());
 
-        }else{
+        } else {
 
             LawSuitClientDocument.setText(getCurrentLawsuit().getClientByClientId().getDocumentNumber());
             LawSuitOppositorName.setText(getCurrentLawsuit().getOppositeName());
@@ -82,9 +88,9 @@ public class LawSuit extends Screen {
 
             int indexEmployee = 0;
 
-            for(int i = 0; i < employees.size(); i++){
+            for (int i = 0; i < employees.size(); i++) {
 
-                if(employees.get(i).getId() == getCurrentLawsuit().getEmployeeByEmployee().getId()){
+                if (employees.get(i).getId() == getCurrentLawsuit().getEmployeeByEmployee().getId()) {
                     indexEmployee = i;
                     break;
                 }
@@ -93,52 +99,70 @@ public class LawSuit extends Screen {
 
             comboEmployee.getSelectionModel().select(indexEmployee);
         }
+
+        insertValidation();
     }
 
 
     @FXML
     void SaveLawSuit(ActionEvent event) {
 
-        Client client = (Client) mDataController.getObjectWithValue(Client.class, "documentNumber",  LawSuitClientDocument.getText());
+        if (Validation.isEveryInputFilled(
+                LawSuitClientDocument.getText(),
+                LawSuitOppositorName.getText(),
+                LawSuitOppositorDocument.getText(),
+                LawSuitNumber.getText(),
+                LawSuitTitle.getText(),
+                LawSuitDescription.getText(),
+                LawSuitForum.getText(),
+                LawSuitCourt.getText(),
+                LawSuitType.getText())) {
 
-        if(client == null)
-        {
-            Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-            dialogoErro.setTitle("Erro!");
-            dialogoErro.setHeaderText("Cliente invalido");
-            dialogoErro.setContentText("O CPF digitado não corresponde a nenhum cliente");
-            dialogoErro.showAndWait();
-            return;
+            Client client = (Client) mDataController.getObjectWithValue(Client.class, "documentNumber", LawSuitClientDocument.getText());
+
+            if (client == null) {
+                Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
+                dialogoErro.setTitle("Erro!");
+                dialogoErro.setHeaderText("Cliente invalido");
+                dialogoErro.setContentText("O CPF digitado não corresponde a nenhum cliente");
+                dialogoErro.showAndWait();
+                return;
+            }
+
+            Employee employee = comboEmployee.getSelectionModel().getSelectedItem();
+
+            if (employee == null) {
+                Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
+                dialogoErro.setTitle("Erro!");
+                dialogoErro.setHeaderText("Funcionario invalido");
+                dialogoErro.setContentText("Selecione um funcionario para continuar");
+                dialogoErro.showAndWait();
+                return;
+            }
+
+            getCurrentLawsuit().setClientByClientId(client);
+            getCurrentLawsuit().setEmployeeByEmployee(employee);
+            getCurrentLawsuit().setOppositeName(LawSuitOppositorName.getText());
+            getCurrentLawsuit().setOppositeDocument(LawSuitOppositorDocument.getText());
+            getCurrentLawsuit().setNumber(LawSuitNumber.getText());
+            getCurrentLawsuit().setTitle(LawSuitTitle.getText());
+            getCurrentLawsuit().setDescription(LawSuitDescription.getText());
+            getCurrentLawsuit().setForum(LawSuitForum.getText());
+            getCurrentLawsuit().setCourt(LawSuitCourt.getText());
+            getCurrentLawsuit().setType(LawSuitType.getText());
+
+            if (getCurrentLawsuit().getId() > 0)
+                mDataController.updateObject(getCurrentLawsuit());
+            else
+                mDataController.saveObject(getCurrentLawsuit());
+
+            MainScreensController.getInstance().showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
+        } else {
+            Validation.showErrorDialog(
+                    "Oooops...",
+                    "Informações inválidas",
+                    "Parece que há alguma campo sem preencher, volte ao form para validar"
+            );
         }
-
-        Employee employee = comboEmployee.getSelectionModel().getSelectedItem();
-
-        if(employee == null){
-            Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-            dialogoErro.setTitle("Erro!");
-            dialogoErro.setHeaderText("Funcionario invalido");
-            dialogoErro.setContentText("Selecione um funcionario para continuar");
-            dialogoErro.showAndWait();
-            return;
-        }
-
-        getCurrentLawsuit().setClientByClientId(client);
-        getCurrentLawsuit().setEmployeeByEmployee(employee);
-        getCurrentLawsuit().setOppositeName(LawSuitOppositorName.getText());
-        getCurrentLawsuit().setOppositeDocument(LawSuitOppositorDocument.getText());
-        getCurrentLawsuit().setNumber(LawSuitNumber.getText());
-        getCurrentLawsuit().setTitle(LawSuitTitle.getText());
-        getCurrentLawsuit().setDescription(LawSuitDescription.getText());
-        getCurrentLawsuit().setForum(LawSuitForum.getText());
-        getCurrentLawsuit().setCourt(LawSuitCourt.getText());
-        getCurrentLawsuit().setType(LawSuitType.getText());
-
-        if(getCurrentLawsuit().getId() > 0)
-            mDataController.updateObject(getCurrentLawsuit());
-        else
-            mDataController.saveObject(getCurrentLawsuit());
-
-        MainScreensController.getInstance().showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
     }
-
 }
