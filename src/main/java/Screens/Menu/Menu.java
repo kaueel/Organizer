@@ -63,6 +63,12 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
         mainScreensController.showNewMainScreen("/Screens/Templates/templates.fxml");
     }
 
+    @FXML
+    void callLawSuitsScreen() {
+        mainScreensController.showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
+    }
+
+
     @Override
     public void handle(MouseEvent event) {
 
