@@ -23,11 +23,11 @@ public class Screen {
         Screen.currentdocumentTemplates = currentdocumentTemplates;
     }
 
-    public static Class getTypeOfLastSettedClass() {
+    public Class getTypeOfLastSettedClass() {
         return typeOfLastSettedClass;
     }
 
-    public static void setTypeOfLastSettedClass(Class typeOfLastSettedClass) {
+    public void setTypeOfLastSettedClass(Class typeOfLastSettedClass) {
         Screen.typeOfLastSettedClass = typeOfLastSettedClass;
     }
 
