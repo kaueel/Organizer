@@ -108,7 +108,8 @@ public class LawSuits extends Screen {
         LawSuit lawSuit = lawSuitsTable.getSelectionModel().getSelectedItem();
         if(lawSuit != null) {
             super.setCurrentLawsuit(lawSuit);
-            mainScreensController.showNewMainScreen("/Screens/LawSuit/lawSuit.fxml");
+            super.setTypeOfLastSettedClass(LawSuit.class);
+            mainScreensController.showNewMainScreen("/Screens/LawSuitsTabs/lawSuitsTabs.fxml");
         }
     }
 }
