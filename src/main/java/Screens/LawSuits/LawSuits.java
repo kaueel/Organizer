@@ -3,7 +3,9 @@ package Screens.LawSuits;
 import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
+import Models.Client;
 import Models.DocumentTemplates;
+import Models.Employee;
 import Models.LawSuit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LawSuits extends Screen {
@@ -55,15 +58,38 @@ public class LawSuits extends Screen {
 
         LawSuits = (ObservableList<LawSuit>) dataController.getAllObjectsOfType(LawSuit.class);
 
+        ArrayList<Integer> itensRemove = new ArrayList<Integer>();
 
+
+        if(getTypeOfLastSettedClass() == Client.class && getCurrentClient() != null){
+            int count = 0;
+            for (LawSuit lawSuit : LawSuits) {
+                if(!lawSuit.getClientByClientId().getId().equals(getCurrentClient().getId())){
+                    itensRemove.add(count);
+                }
+                count++;
+            }
+        }else if(getTypeOfLastSettedClass() == Employee.class && getCurrentEmployee() != null){
+            int count = 0;
+            for (LawSuit lawSuit : LawSuits) {
+                if(!lawSuit.getEmployeeByEmployee().getId().equals(getCurrentEmployee().getId())){
+                    itensRemove.add(count);
+                }
+                count++;
+            }
+        }
+
+        for (Integer i: itensRemove) {
+            LawSuits.remove(i);
+        }
 
         rowlawSuitsNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
 
         rowlawSuitsTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
 
-        rowlawSuitsTitulo.setCellValueFactory(new PropertyValueFactory<>("clientByClientId"));
+        rowlawSuitsClientName.setCellValueFactory(new PropertyValueFactory<>("clientByClientId"));
 
-        rowlawSuitsTitulo.setCellValueFactory(new PropertyValueFactory<>("oppositeName"));
+        rowlawSuitsPppositeName.setCellValueFactory(new PropertyValueFactory<>("oppositeName"));
 
         lawSuitsTable.setItems(LawSuits);
 

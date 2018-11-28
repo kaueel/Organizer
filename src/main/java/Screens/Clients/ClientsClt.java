@@ -32,8 +32,10 @@ public class ClientsClt extends Screen {
 
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientName;
+
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientPhone;
+
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientDocument;
 
@@ -42,12 +44,11 @@ public class ClientsClt extends Screen {
 
     @FXML
     void initialize() {
-
         clients = (ObservableList<Client>) dataController.getAllObjectsOfType(Client.class);
-
         rowClientName.setCellValueFactory(new PropertyValueFactory<>("name"));
         rowClientPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         rowClientDocument.setCellValueFactory(new PropertyValueFactory<>("email"));
+        Client example = (Client) dataController.getObjectWithValue(Client.class, "documentNumber", "6666");
         clientsTable.setItems(clients);
     }
 
@@ -55,11 +56,12 @@ public class ClientsClt extends Screen {
     void callClientScreen() {
         super.setCurrentClient(null);
         mainScreensController.showNewMainScreen("/Screens/Client/client.fxml");
-
     }
 
     @FXML
     void setCurrentClient() {
+        super.setTypeOfLastSettedClass(Client.class);
         super.setCurrentClient(clientsTable.getSelectionModel().getSelectedItem());
+        mainScreensController.showNewMainScreen("/Screens/ClientTabs/clientTabs.fxml");
     }
 }
