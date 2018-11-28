@@ -37,7 +37,7 @@
                         <TableColumn fx:id="rowClientDocument" minWidth="0.0" prefWidth="147.0" text="Email" />
                     </columns>
                 </TableView>
-            <TextField fx:id="pesquisar" onKeyReleased="#search" promptText="Pesquisar" GridPane.columnIndex="1" />
+            <TextField fx:id="searchfield" onKeyReleased="#search" promptText="Pesquisar" GridPane.columnIndex="1" />
             </children>
         </GridPane>
     </children>

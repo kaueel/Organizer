@@ -32,7 +32,7 @@ public class ClientsClt extends Screen {
     private Button btnNewClient;
 
     @FXML
-    private TextField pesquisar;
+    private TextField searchfield;
 
     @FXML
     private TableColumn<ObservableList<Employee>, String> rowClientName;
@@ -69,7 +69,7 @@ public class ClientsClt extends Screen {
 
     @FXML
     void search() {
-        String chave = pesquisar.getText().toUpperCase();
+        String chave = searchfield.getText().toUpperCase();
         ObservableList<Client> clientsPesquisa = FXCollections.observableArrayList();
 
         if (!chave.isEmpty()) {
