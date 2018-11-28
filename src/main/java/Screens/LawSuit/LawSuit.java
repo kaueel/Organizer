@@ -14,8 +14,8 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class LawSuit extends Screen {
+    private boolean isNull = false;
     private DataController mDataController = DataController.getInstance();
     @FXML
     private ResourceBundle resources;
@@ -61,9 +61,7 @@ public class LawSuit extends Screen {
         comboEmployee.getSelectionModel().selectFirst();
 
         if( getCurrentLawsuit() == null){
-            setCurrentLawsuit(new Models.LawSuit());
-            getCurrentLawsuit().setClientByClientId(getCurrentClient());
-
+            isNull = true;
 
             if(getCurrentClient() != null)
                 LawSuitClientDocument.setText(getCurrentClient().getDocumentNumber());
@@ -98,6 +96,11 @@ public class LawSuit extends Screen {
 
     @FXML
     void SaveLawSuit(ActionEvent event) {
+
+        if (isNull){
+            setCurrentLawsuit(new Models.LawSuit());
+            getCurrentLawsuit().setClientByClientId(getCurrentClient());
+        }
 
         Client client = (Client) mDataController.getObjectWithValue(Client.class, "documentNumber",  LawSuitClientDocument.getText());
 
