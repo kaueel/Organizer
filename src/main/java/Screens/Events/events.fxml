@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Events.EventsClt">
+    <children>
+        <GridPane prefWidth="1050.0" style="-fx-background-color: fff;" stylesheets="@../globalstyle.css" vgap="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="54.0" vgrow="NEVER" />
+                <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEventScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="New Event" GridPane.halignment="LEFT">
+                    <GridPane.margin>
+                        <Insets right="40.0" />
+                    </GridPane.margin>
+                </Button>
+                <TableView fx:id="meetingTable" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="rowEventSubject" maxWidth="500.0" prefWidth="345.0" text="Title" />
+                        <TableColumn fx:id="rowClientName" maxWidth="500.0" prefWidth="176.25" text="Client" />
+                  <TableColumn fx:id="rowLawSuitTitle" maxWidth="500.0" prefWidth="176.25" text="Process" />
+                  <TableColumn fx:id="rowLocal" maxWidth="500.0" prefWidth="176.25" text="Local" />
+                  <TableColumn fx:id="rowDateTime" maxWidth="500.0" prefWidth="176.25" text="Date &amp; Time" />
+                    </columns>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+                </TableView>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

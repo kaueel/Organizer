@@ -12,6 +12,7 @@ public class Meeting {
     private String description;
     private LawSuit lawSuitByLawSuitId;
     private Client clientByClientId;
+    private String local;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,5 +89,13 @@ public class Meeting {
 
     public void setClientByClientId(Client clientByClientId) {
         this.clientByClientId = clientByClientId;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
     }
 }
