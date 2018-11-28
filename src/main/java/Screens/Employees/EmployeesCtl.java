@@ -3,6 +3,7 @@ package Screens.Employees;
 import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
+import Models.Client;
 import Models.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -40,6 +42,9 @@ public class EmployeesCtl extends Screen {
     private TableView<Employee> employeesTable;
 
     @FXML
+    private TextField searchfield;
+
+    @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         employees = (ObservableList<Employee>) dataController.getAllObjectsOfType(Employee.class);
@@ -48,7 +53,9 @@ public class EmployeesCtl extends Screen {
         rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("position"));
         employeesTable.setItems(employees);
+
     }
+
 
     @FXML
     void callEmployeeScreen() {
@@ -61,5 +68,22 @@ public class EmployeesCtl extends Screen {
         super.setTypeOfLastSettedClass(Employee.class);
         super.setCurrentEmployee(employeesTable.getSelectionModel().getSelectedItem());
         mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
+    }
+
+    @FXML
+    void search() {
+        String chave = searchfield.getText().toUpperCase();
+        ObservableList<Employee> employeesPesquisa = FXCollections.observableArrayList();
+
+        if (!chave.isEmpty()) {
+            for (Employee emp : employees) {
+                if (emp.getName().toUpperCase().contains(chave) || emp.getPhone().toUpperCase().contains(chave) || emp.getPosition().toUpperCase().contains(chave))
+                    employeesPesquisa.add(emp);
+            }
+        }else{
+            employeesPesquisa.addAll(employees);
+        }
+
+        employeesTable.setItems(employeesPesquisa);
     }
 }
