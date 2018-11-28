@@ -1,4 +1,4 @@
 package Screens.EmployeeTabs;
 
-public class EmployeeTabsCtl {
+public class EmployeeTabsCtl{
 }
