@@ -68,7 +68,7 @@ public class ClientsClt extends Screen {
     }
 
     @FXML
-    void pesquisar() {
+    void search() {
         String chave = pesquisar.getText().toUpperCase();
         ObservableList<Client> clientsPesquisa = FXCollections.observableArrayList();
 
