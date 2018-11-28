@@ -39,7 +39,6 @@ public class EmployeesCtl extends Screen {
     @FXML // fx:id="employeesTable"
     private TableView<Employee> employeesTable;
 
-
     @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
@@ -49,17 +48,18 @@ public class EmployeesCtl extends Screen {
         rowEmployeePhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         rowEmployeeCargo.setCellValueFactory(new PropertyValueFactory<>("position"));
         employeesTable.setItems(employees);
-
     }
-
 
     @FXML
     void callEmployeeScreen() {
+        super.setCurrentEmployee(null);
         mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
     }
 
     @FXML
-    void setCurrentEmployee(){
+    void setCurrentEmployee() {
+        super.setTypeOfLastSettedClass(Employee.class);
         super.setCurrentEmployee(employeesTable.getSelectionModel().getSelectedItem());
+        mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
     }
 }
