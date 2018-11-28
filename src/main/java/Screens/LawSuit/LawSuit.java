@@ -6,10 +6,12 @@ import Controllers.Screen;
 import Models.Client;
 import Models.Employee;
 import Models.State;
+import Utils.Validation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,6 +55,10 @@ public class LawSuit extends Screen {
     @FXML
     private ComboBox<Employee> comboEmployee;
 
+    private void insertValidation() {
+        LawSuitNumber.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
+    }
+
     @FXML
     void initialize() {
 
@@ -93,6 +99,8 @@ public class LawSuit extends Screen {
 
             comboEmployee.getSelectionModel().select(indexEmployee);
         }
+
+        insertValidation();
     }
 
 
