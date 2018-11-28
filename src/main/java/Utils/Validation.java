@@ -1,6 +1,7 @@
 package Utils;
 
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
@@ -47,5 +48,23 @@ public class Validation {
                 e.consume();
             }
         };
+    }
+
+    public static Boolean isEveryInputFilled(String... strings) {
+        boolean isEveryInputFilled = true;
+
+        for (String string : strings)
+            if (isEveryInputFilled && string.isEmpty())
+                isEveryInputFilled = false;
+
+        return isEveryInputFilled;
+    }
+
+    public static void showErrorDialog(String title, String header, String desc) {
+        Alert errorDialog = new Alert(Alert.AlertType.ERROR);
+        errorDialog.setTitle(title);
+        errorDialog.setHeaderText(header);
+        errorDialog.setContentText(desc);
+        errorDialog.showAndWait();
     }
 }
