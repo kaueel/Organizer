@@ -62,6 +62,6 @@ public class ClientsClt extends Screen {
     void setCurrentClient() {
         super.setTypeOfLastSettedClass(Client.class);
         super.setCurrentClient(clientsTable.getSelectionModel().getSelectedItem());
-        mainScreensController.showNewMainScreen("/Screens/Client/client.fxml");
+        mainScreensController.showNewMainScreen("/Screens/ClientTabs/clientTabs.fxml");
     }
 }
