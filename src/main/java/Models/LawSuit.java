@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 public class LawSuit {
-    private Integer id;
+    private int id;
     private Client clientByClientId;
     private Employee employeeByEmployee;
     private String oppositeName;
@@ -21,11 +21,11 @@ public class LawSuit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name = "ID", nullable = false)
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

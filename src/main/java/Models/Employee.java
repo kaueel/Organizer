@@ -122,4 +122,9 @@ public class Employee {
     public int hashCode() {
         return Objects.hash(cpf, name, accessLevel, login, token);
     }
+
+    @Override
+    public String toString(){
+        return getName(); //Whatever you want to show
+    }
 }
