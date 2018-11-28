@@ -68,7 +68,7 @@
                   <Insets />
                </opaqueInsets>
                 </TextField>
-                <Label text="Cadastro de Funcionario" GridPane.columnSpan="3">
+                <Label text="Cadastro de Processo" GridPane.columnSpan="3">
                     <font>
                         <Font size="28.0" />
                     </font>
