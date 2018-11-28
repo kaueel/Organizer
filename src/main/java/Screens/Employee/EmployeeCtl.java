@@ -63,7 +63,6 @@ public class EmployeeCtl extends Screen {
         callEmployeesScreen();
     }
 
-
     @FXML
     void callEmployeesScreen() {
         mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
@@ -71,7 +70,17 @@ public class EmployeeCtl extends Screen {
 
     @FXML
     void initialize() {
+        if (super.getCurrentEmployee() != null) {
+            EmployeeCpfField.setText(super.getCurrentEmployee().getCpf());
+            EmployeeUserNameField.setText(super.getCurrentEmployee().getLogin());
+            EmployeePasswordField.setText(super.getCurrentEmployee().getToken());
+            EmployeeSalaryField.setText(super.getCurrentEmployee().getSalary());
+            EmployeePositionField.setText(super.getCurrentEmployee().getPosition());
+            EmployeeNameField.setText(super.getCurrentEmployee().getName());
+            EmployeePhoneField.setText(super.getCurrentEmployee().getPhone());
 
+
+        }
 
     }
 }
