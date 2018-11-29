@@ -11,13 +11,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="background-white" stylesheets="@../globalstyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.LawSuit.LawSuit">
+<AnchorPane styleClass="background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.LawSuit.LawSuit">
     <children>
         <GridPane styleClass="gridForm" stylesheets="@../globalstyle.css" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="72.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="350.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="350.0" />
-                <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -32,41 +31,37 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <TextField
-                        fx:id="LawSuitNumber"
-                        promptText="Numero do processo"
-                        GridPane.columnSpan="3"
-                        GridPane.rowIndex="1">
+                <TextField fx:id="LawSuitNumber" promptText="Numero do processo" GridPane.columnSpan="2" GridPane.rowIndex="1">
                     <opaqueInsets>
                         <Insets left="30.0" />
                     </opaqueInsets>
                     <GridPane.margin>
-                        <Insets left="30.0" right="30.0" top="36.0" />
+                        <Insets left="30.0" top="24.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="LawSuitTitle" promptText="Titulo" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                <TextField fx:id="LawSuitTitle" promptText="Titulo" GridPane.columnSpan="2" GridPane.rowIndex="2">
                     <GridPane.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="LawSuitDescription" promptText="Description" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                <TextField fx:id="LawSuitDescription" promptText="Description" GridPane.columnSpan="2" GridPane.rowIndex="3">
                     <GridPane.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="LawSuitForum" promptText="Forum" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                <TextField fx:id="LawSuitForum" promptText="Forum" GridPane.columnSpan="2" GridPane.rowIndex="4">
                     <GridPane.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" />
                     </GridPane.margin>
                 </TextField>
                 <TextField fx:id="LawSuitCourt" promptText="Vara" GridPane.rowIndex="5">
                     <GridPane.margin>
-                        <Insets left="30.0" right="-29.0" />
+                        <Insets left="30.0" right="12.0" />
                     </GridPane.margin>
                 </TextField>
                 <TextField fx:id="LawSuitType" prefHeight="25.0" prefWidth="379.0" promptText="Tipo do processo" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <GridPane.margin>
-                        <Insets />
+                        <Insets left="12.0" />
                     </GridPane.margin>
                <opaqueInsets>
                   <Insets />
@@ -80,32 +75,32 @@
                         <Insets left="30.0" />
                     </GridPane.margin>
                 </Label>
-                <Button fx:id="btnSaveLawSuit" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SaveLawSuit" prefHeight="30.0" prefWidth="718.0" styleClass="button" stylesheets="@../globalstyle.css" text="Salvar" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                <Button fx:id="btnSaveLawSuit" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#SaveLawSuit" prefHeight="30.0" prefWidth="718.0" styleClass="buttonBlue" stylesheets="@../globalstyle.css" text="Salvar" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
                     <GridPane.margin>
                         <Insets left="30.0" top="20.0" />
                     </GridPane.margin>
                 </Button>
-                <TextField fx:id="LawSuitOppositorName" promptText="Nome da parte contraria" GridPane.columnSpan="3" GridPane.rowIndex="7">
+                <TextField fx:id="LawSuitOppositorName" promptText="Nome da parte contraria" GridPane.columnSpan="2" GridPane.rowIndex="7">
                     <GridPane.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="LawSuitOppositorDocument" prefHeight="25.0" prefWidth="695.0" promptText="Documento da parte contraria" GridPane.columnSpan="3" GridPane.rowIndex="8">
+                <TextField fx:id="LawSuitOppositorDocument" prefHeight="25.0" prefWidth="695.0" promptText="Documento da parte contraria" GridPane.columnSpan="2" GridPane.rowIndex="8">
                     <GridPane.margin>
-                        <Insets left="30.0" right="30.0" />
+                        <Insets left="30.0" />
                     </GridPane.margin>
                 </TextField>
 
 
                 <TextField fx:id="LawSuitClientDocument" promptText="CPF/CNPJ do cliente" GridPane.columnSpan="1" GridPane.rowIndex="6">
                     <GridPane.margin>
-                        <Insets left="30.0" right="-29.0" />
+                        <Insets left="30.0" right="12.0" />
                     </GridPane.margin>
                 </TextField>
 
-                <ComboBox fx:id="comboEmployee" prefHeight="25.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <ComboBox styleClass="comboboxWhite" stylesheets="@../globalstyle.css" fx:id="comboEmployee" prefHeight="25.0" prefWidth="380.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                     <GridPane.margin>
-                        <Insets />
+                        <Insets left="12.0" />
                     </GridPane.margin></ComboBox>
 
             </children>
