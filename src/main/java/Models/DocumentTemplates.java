@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 public class DocumentTemplates {
-    private Integer id;
+    private int id;
     private String name;
     private String documentText;
     private Date lastUpdate;
@@ -14,11 +14,11 @@ public class DocumentTemplates {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

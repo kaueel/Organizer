@@ -21,7 +21,7 @@ public class DocumentTemplatesTest {
     @Test
     public void setId() {
         documentTemplates.setId(3);
-        Assert.assertEquals((Integer) 3,documentTemplates.getId());
+        Assert.assertEquals(3,documentTemplates.getId());
     }
 
     @Test
