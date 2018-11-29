@@ -53,8 +53,10 @@ public class LawSuits extends Screen {
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        LawSuits = (ObservableList<LawSuit>) dataController.getAllObjectsOfType(LawSuit.class);
-
+        try {
+            LawSuits = (ObservableList<LawSuit>) dataController.getAllObjectsOfType(LawSuit.class);
+        } catch (Exception e) {
+        }
         ArrayList<Integer> itensRemove = new ArrayList<Integer>();
 
 
@@ -90,7 +92,7 @@ public class LawSuits extends Screen {
 
     @FXML
     void callLawSuitScreen() {
-        super.setCurrentdocumentTemplates(null);
+        setCurrentdocumentTemplates(null);
         mainScreensController.showNewMainScreen("/Screens/LawSuit/lawSuit.fxml");
     }
 

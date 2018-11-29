@@ -52,8 +52,10 @@ public class EventsClt extends Screen {
 
     @FXML
     void initialize() {
-
-        meeting = (ObservableList<Meeting>) dataController.getAllObjectsOfType(Meeting.class);
+        try {
+            meeting = (ObservableList<Meeting>) dataController.getAllObjectsOfType(Meeting.class);
+        } catch (Exception e) {
+        }
 
         if(getCurrentLawsuit() != null && getTypeOfLastSettedClass() == LawSuit.class)
             btnNewClient.setVisible(true);
