@@ -122,8 +122,7 @@ public class LawSuit extends Screen {
                 LawSuitForum.getText(),
                 LawSuitCourt.getText(),
                 LawSuitType.getText())) {
-
-            Client client = (Client) mDataController.getObjectWithValue(Client.class, "documentNumber", LawSuitClientDocument.getText());
+            
 
         if(client == null)
         {
