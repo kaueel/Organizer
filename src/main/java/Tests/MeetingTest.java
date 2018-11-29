@@ -1,3 +1,5 @@
+package Tests;
+
 import Models.Client;
 import Models.LawSuit;
 import Models.Meeting;
@@ -31,7 +33,7 @@ public class MeetingTest {
 
     @Test
     public void setId() {
-        meeting.setId((Integer)12345);
+        meeting.setId(12345);
         Assert.assertEquals((Integer)12345,meeting.getId());
     }
 

@@ -63,12 +63,12 @@
                   <Insets left="30.0" right="30.0" />
                </GridPane.margin>
             </TextField>
-            <DatePicker prefHeight="25.0" prefWidth="324.0" GridPane.rowIndex="3">
+            <DatePicker fx:id="EventTimeField" prefHeight="25.0" prefWidth="324.0" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="30.0" />
                </GridPane.margin>
             </DatePicker>
-            <TextField layoutX="40.0" layoutY="73.0" promptText="Hora" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="EventHoraField" layoutX="40.0" layoutY="73.0" promptText="Hora" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <opaqueInsets>
                   <Insets left="30.0" />
                </opaqueInsets>

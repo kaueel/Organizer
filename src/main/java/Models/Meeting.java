@@ -1,13 +1,13 @@
 package Models;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Meeting {
-    private Integer id;
-    private Timestamp startTime;
+    private int id;
+    private Date startTime;
     private String subject;
     private String description;
     private LawSuit lawSuitByLawSuitId;
@@ -27,11 +27,11 @@ public class Meeting {
 
     @Basic
     @Column(name = "StartTime", nullable = false)
-    public Timestamp getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
@@ -91,6 +91,8 @@ public class Meeting {
         this.clientByClientId = clientByClientId;
     }
 
+    @Basic
+    @Column(name = "Local", nullable = true, length = 10000)
     public String getLocal() {
         return local;
     }
