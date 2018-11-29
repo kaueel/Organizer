@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.121" fx:controller="Screens.EmployeeTabs.EmployeeTabsCtl">
    <children>
-      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE">
+       <TabPane layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE"
+                AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Processos">
               <fx:include source="../LawSuits/lawSuits.fxml"/>
