@@ -47,7 +47,7 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
 
     @FXML
     void callEmployeeScreen() {
-        mainScreensController.showNewMainScreen("/Screens/EmployeeTabs/employeeTabs.fxml");
+        mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
     }
 
     @FXML
@@ -68,11 +68,6 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
     @FXML
     void callLawSuitsScreen() {
         mainScreensController.showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
-    }
-
-    @FXML
-    void callFileScreen(){
-        mainScreensController.showNewMainScreen("/Screens/Files/files.fxml");
     }
 
 

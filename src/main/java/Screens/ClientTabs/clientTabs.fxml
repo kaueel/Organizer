@@ -19,8 +19,6 @@
                     </fx:include>
                 </Tab>
                 <Tab text="Arquivos">
-                    <fx:include source="../Files/files.fxml">
-                    </fx:include>
                 </Tab>
             </tabs>
         </TabPane>

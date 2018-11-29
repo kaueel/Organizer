@@ -97,7 +97,7 @@
                 </TextField>
 
 
-                <TextField fx:id="LawSuitClientDocument" promptText="CPF/CNPJ do cliente" GridPane.columnSpan="1" GridPane.rowIndex="6">
+                <TextField fx:id="LawSuitClientDocument" promptText="Documento do cliente" GridPane.columnSpan="1" GridPane.rowIndex="6">
                     <GridPane.margin>
                         <Insets left="30.0" right="-29.0" />
                     </GridPane.margin>

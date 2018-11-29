@@ -4,12 +4,10 @@ import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.*;
-import Utils.Validation;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -69,45 +67,8 @@ public class ClientCtl extends Screen {
     @FXML
     private Button btnSaveClient;
 
-    private void insertValidation() {
-        ClientCpfField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
-        ClientPhoneField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
-        clientCepField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
-    }
-
     @FXML
     void SaveClient(ActionEvent event) {
-        if(ClientCpfField.getText().length() != 11 || ClientCpfField.getText().length() != 14) {
-            Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-            dialogoErro.setTitle("Erro!");
-            dialogoErro.setHeaderText("CPF/CNPJ inválido!");
-            dialogoErro.setContentText("Digite o CPF ou CNPJ sem pontuação, contendo 11 ou 14 caracteres");
-            dialogoErro.showAndWait();
-            return;
-        }else if(!radioCompany.isSelected() && !radioPerson.isSelected()){
-            Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-            dialogoErro.setTitle("Erro!");
-            dialogoErro.setHeaderText("Tipo não selecionado");
-            dialogoErro.setContentText("Selecione o tipo de pessoa: Física ou Jurídica");
-            dialogoErro.showAndWait();
-            return;
-        }else if(!Validation.isEveryInputFilled(
-                ClientCpfField.getText(),
-                clientStreetField.getText(),
-                clientAdressNumberField.getText(),
-                ClientNameField.getText(),
-                clientDistrictField.getText(),
-                ClientEmailField.getText(),
-                clientCityField.getText(),
-                ClientPhoneField.getText(),
-                clientCepField.getText())){
-            Validation.showErrorDialog(
-                    "Oooops...",
-                    "Informações inválidas",
-                    "Parece que há alguma campo sem preencher, volte ao form para validar"
-            );
-            return;
-        }
 
         //Creating Address
 
@@ -183,8 +144,6 @@ public class ClientCtl extends Screen {
                 ClientPhoneField.setText(super.getCurrentClient().getPhone());
                 clientStreetField.setText(super.getCurrentClient().getAddressByAddressId().getAddress());
             }
-            insertValidation();
         }
-
     }
 
