@@ -2,6 +2,7 @@ package Models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -9,7 +10,7 @@ import java.util.Objects;
 public class LawSuitProgress {
     private Integer id;
     private String description;
-    private Timestamp date;
+    private Date date;
     private LawSuit lawSuitByLawSuitId;
 
     @Id
@@ -35,11 +36,11 @@ public class LawSuitProgress {
 
     @Basic
     @Column(name = "Date", nullable = false)
-    public Timestamp getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
