@@ -1,4 +1,4 @@
-package Screens.lawSuitComments;
+package Screens.LawSuitComments;
 
 import Controllers.Screen;
 
