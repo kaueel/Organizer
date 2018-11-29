@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 
-public class lawSuitCommentsCtl extends Screen {
+public class LawSuitCommentsCtl extends Screen {
 
     @FXML
     DatePicker commentDatePicker;

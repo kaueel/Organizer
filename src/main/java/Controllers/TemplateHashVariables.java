@@ -5,9 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.text.DateFormat;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -76,6 +73,14 @@ public class TemplateHashVariables extends Screen{
         functions.forEach((s, callable) -> keys.add(s));
 
         return keys;
+    }
+
+    public String getValue(String key){
+        try{
+            return (String) functions.get(key).call();
+        }catch (Exception ex){
+            return "";
+        }
     }
 
 }

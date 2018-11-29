@@ -66,4 +66,9 @@ public class DocumentTemplates {
     public int hashCode() {
         return Objects.hash(id, name, documentText);
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

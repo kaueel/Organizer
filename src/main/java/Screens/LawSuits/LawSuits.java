@@ -4,7 +4,6 @@ import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.Client;
-import Models.DocumentTemplates;
 import Models.Employee;
 import Models.LawSuit;
 import javafx.collections.FXCollections;
@@ -77,8 +76,8 @@ public class LawSuits extends Screen {
             }
         }
 
-        for (Integer i: itensRemove) {
-            LawSuits.remove(i);
+        for (int i = itensRemove.size()-1; i >= 0; i--) {
+            LawSuits.remove((int)itensRemove.get(i));
         }
 
         rowlawSuitsNumber.setCellValueFactory(new PropertyValueFactory<>("number"));

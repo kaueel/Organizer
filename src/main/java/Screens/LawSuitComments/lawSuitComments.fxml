@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.LawSuitComments.lawSuitCommentsCtl">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.LawSuitComments.LawSuitCommentsCtl">
    <children>
       <AnchorPane layoutX="-2.0" prefHeight="400.0" prefWidth="600.0">
          <children>
