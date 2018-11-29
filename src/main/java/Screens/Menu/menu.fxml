@@ -8,7 +8,7 @@
         <children>
             <Label fx:id="itemClient" layoutX="-20.0" layoutY="14.0" onMouseClicked="#callClientScreen" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Clientes" textFill="#777777" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Label fx:id="itemLowSuit" layoutY="51.0" prefHeight="41.0" onMouseClicked="#callLawSuitsScreen" prefWidth="300.0" styleClass="menuItem" text="Processos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
-            <Label fx:id="itemEvent" layoutX="-20.0" layoutY="92.0" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Eventos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
+            <Label fx:id="itemEvent" layoutX="-20.0" layoutY="92.0" onMouseClicked="#callEventScreen"  prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Eventos" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0" />
             <Label fx:id="itemEmployee" layoutX="-20.0" layoutY="124.0" onMouseClicked="#callEmployeeScreen" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Funcionários" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
             <Label fx:id="itemTemplate" layoutX="-20.0" layoutY="161.0" onMouseClicked="#callTemplateScreen" prefHeight="27.0" prefWidth="245.0" styleClass="menuItem" text="Templates" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0" />
         </children>

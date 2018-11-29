@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<AnchorPane style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Events.EventsClt">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Events.EventsClt">
     <children>
         <GridPane prefWidth="1050.0" style="-fx-background-color: fff;" stylesheets="@../globalstyle.css" vgap="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
@@ -19,7 +25,7 @@
                         <Insets right="40.0" />
                     </GridPane.margin>
                 </Button>
-                <TableView fx:id="meetingTable" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
+                <TableView fx:id="meetingTable" onMouseClicked="#callEditMeeting" stylesheets="@../globalstyle.css" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="rowEventSubject" maxWidth="500.0" prefWidth="345.0" text="Title" />
                         <TableColumn fx:id="rowClientName" maxWidth="500.0" prefWidth="176.25" text="Client" />

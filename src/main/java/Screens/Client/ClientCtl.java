@@ -109,14 +109,14 @@ public class ClientCtl extends Screen {
             return;
         }
 
-        //Creating City
+        //Creating Address
+
         City city = new City();
+
+        Address address = new Address();
         city.setCity(clientCityField.getText());
         city.setUf(state.getSelectionModel().getSelectedItem().getUf());
         mDataController.saveObject(city);
-
-        //Creating Address
-        Address address = new Address();
         address.setCityByCityId(city);
         address.setStateByStateId(state.getSelectionModel().getSelectedItem());
         address.setDistrict(clientDistrictField.getText());
@@ -124,39 +124,21 @@ public class ClientCtl extends Screen {
         address.setAddress(clientStreetField.getText());
         address.setAddress2(clientAdressNumberField.getText());
         mDataController.saveObject(address);
-
-        //Saving new
-
-        if(getCurrentClient() == null){
-            Client client  = new Client();
-            client.setAddressByAddressId(address);
-            client.setAddressNumber(clientAdressNumberField.toString());
-            client.setDocumentNumber(ClientCpfField.getText());
-            client.setName(ClientNameField.getText());
-            client.setEmail(ClientEmailField.getText());
-            client.setPhone(ClientPhoneField.getText());
-            //Verifiyng clientType
-            if (clientType.getSelectedToggle() == radioPerson) {
-                client.setClientTypeByClientTypeId(typesOfClient.get(0));
-            } else
-                client.setClientTypeByClientTypeId(typesOfClient.get(1));
-            mDataController.saveObject(client);
-            callClientsScreen();
-        }else{
-            getCurrentClient().setAddressByAddressId(address);
-            getCurrentClient().setAddressNumber(clientAdressNumberField.toString());
-            getCurrentClient().setDocumentNumber(ClientCpfField.getText());
-            getCurrentClient().setName(ClientNameField.getText());
-            getCurrentClient().setEmail(ClientEmailField.getText());
-            getCurrentClient().setPhone(ClientPhoneField.getText());
-            //Verifiyng clientType
-            if (clientType.getSelectedToggle() == radioPerson) {
-                getCurrentClient().setClientTypeByClientTypeId(typesOfClient.get(0));
-            } else
-                getCurrentClient().setClientTypeByClientTypeId(typesOfClient.get(1));
-            mDataController.updateObject(getCurrentClient());
-            callClientsScreen();
-        }
+        //Saving new client
+        Client client = new Client();
+        client.setAddressByAddressId(address);
+        client.setAddressNumber(clientAdressNumberField.toString());
+        client.setDocumentNumber(ClientCpfField.getText());
+        client.setName(ClientNameField.getText());
+        client.setEmail(ClientEmailField.getText());
+        client.setPhone(ClientPhoneField.getText());
+        //Verifiyng clientType
+        if (clientType.getSelectedToggle() == radioPerson) {
+            client.setClientTypeByClientTypeId(typesOfClient.get(0));
+        } else
+            client.setClientTypeByClientTypeId(typesOfClient.get(1));
+        mDataController.saveObject(client);
+        callClientsScreen();
     }
 
     @FXML
@@ -190,19 +172,19 @@ public class ClientCtl extends Screen {
             typesOfClient.add(pessoaJuridica);
             mDataController.saveObject(pessoaJuridica);
         }
-        if (super.getCurrentClient() != null) {
-            clientCepField.setText(super.getCurrentClient().getAddressByAddressId().getPostalCode());
-            clientAdressNumberField.setText(super.getCurrentClient().getAddressByAddressId().getAddress2());
-            clientCityField.setText(super.getCurrentClient().getAddressByAddressId().getCityByCityId().getCity());
-            ClientCpfField.setText(super.getCurrentClient().getDocumentNumber());
-            ClientEmailField.setText(super.getCurrentClient().getEmail());
-            clientDistrictField.setText(super.getCurrentClient().getAddressByAddressId().getDistrict());
-            ClientNameField.setText(super.getCurrentClient().getName());
-            ClientPhoneField.setText(super.getCurrentClient().getPhone());
-            clientStreetField.setText(super.getCurrentClient().getAddressByAddressId().getAddress());
+            if (super.getCurrentClient() != null) {
+                clientCepField.setText(super.getCurrentClient().getAddressByAddressId().getPostalCode());
+                clientAdressNumberField.setText(super.getCurrentClient().getAddressByAddressId().getAddress2());
+                clientCityField.setText(super.getCurrentClient().getAddressByAddressId().getCityByCityId().getCity());
+                ClientCpfField.setText(super.getCurrentClient().getDocumentNumber());
+                ClientEmailField.setText(super.getCurrentClient().getEmail());
+                clientDistrictField.setText(super.getCurrentClient().getAddressByAddressId().getDistrict());
+                ClientNameField.setText(super.getCurrentClient().getName());
+                ClientPhoneField.setText(super.getCurrentClient().getPhone());
+                clientStreetField.setText(super.getCurrentClient().getAddressByAddressId().getAddress());
+            }
+            insertValidation();
         }
-        insertValidation();
-    }
 
-}
+    }
 

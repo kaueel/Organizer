@@ -13,6 +13,8 @@
                     </fx:include>
                 </Tab>
                 <Tab text="Eventos">
+                    <fx:include source="../Events/events.fxml">
+                    </fx:include>
                 </Tab>
                 <Tab text="Dados">
                     <fx:include source="../Client/client.fxml">

@@ -142,4 +142,10 @@ public class LawSuit {
     public void setEmployeeByEmployee(Employee employeeByEmployee) {
         this.employeeByEmployee = employeeByEmployee;
     }
+
+
+    @Override
+    public String toString() {
+        return getTitle();
+    }
 }

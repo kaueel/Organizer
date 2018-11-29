@@ -12,6 +12,7 @@
                     <fx:include source="../LawSuitComments/lawSuitComments.fxml" />
                 </Tab>
                 <Tab text="Eventos">
+                    <fx:include source="../Events/events.fxml" />
                 </Tab>
                 <Tab text="Arquivos">
                     <fx:include source="../Files/files.fxml"/>
