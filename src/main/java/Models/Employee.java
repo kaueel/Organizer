@@ -26,6 +26,7 @@ public class Employee {
         this.id = id;
     }
 
+
     @Column(name = "CPF", nullable = false, length = 11)
     public String getCpf() {
         return cpf;
