@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -122,11 +123,12 @@ public class EventsClt extends Screen {
     }
 
     @FXML
-    void callEditMeeting() {
+    void callEditMeeting(MouseEvent click) {
+        if (meetingTable.getSelectionModel().getSelectedItem() != null) {
             super.setTypeOfLastSettedClass(Meeting.class);
             super.setCurrentMeeting(meetingTable.getSelectionModel().getSelectedItem());
             mainScreensController.showNewMainScreen("/Screens/Event/event.fxml");
-
+        }
     }
 
     @FXML
