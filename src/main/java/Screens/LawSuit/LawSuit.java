@@ -122,7 +122,7 @@ public class LawSuit extends Screen {
                 LawSuitForum.getText(),
                 LawSuitCourt.getText(),
                 LawSuitType.getText())) {
-            
+
 
         if(client == null)
         {
