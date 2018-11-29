@@ -47,32 +47,42 @@ public class Menu extends Screen implements Observer, EventHandler<MouseEvent> {
 
     @FXML
     void callEmployeeScreen() {
-        mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
+        clearTemp();
+        mainScreensController.showNewMainScreen("/Screens/EmployeeTabs/employeeTabs.fxml");
     }
 
     @FXML
     void callClientScreen() {
+        clearTemp();
         mainScreensController.showNewMainScreen("/Screens/Clients/clients.fxml");
     }
 
     @FXML
     void callEventScreen() {
+        clearTemp();
         mainScreensController.showNewMainScreen("/Screens/Events/events.fxml");
     }
 
     @FXML
     void callTemplateScreen() {
+        clearTemp();
         mainScreensController.showNewMainScreen("/Screens/Templates/templates.fxml");
     }
 
     @FXML
     void callLawSuitsScreen() {
+        clearTemp();
         mainScreensController.showNewMainScreen("/Screens/LawSuits/lawSuits.fxml");
     }
 
-    @FXML
-    void callFileScreen(){
-        mainScreensController.showNewMainScreen("/Screens/Files/files.fxml");
+    private void clearTemp(){
+        super.setCurrentClient(null);
+        super.setCurrentEmployee(null);
+        super.setCurrentLawsuit(null);
+        super.setCurrentMeeting(null);
+        super.setCurrentEvent(null);
+        super.setTypeOfLastSettedClass(null);
+        super.setTypeOfLastSettedClass(Object.class);
     }
 
 
