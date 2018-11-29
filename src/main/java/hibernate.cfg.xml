@@ -8,7 +8,7 @@
         <property name="connection.autocommit">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="sql.enforce_strict_size">true</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
         </property>
         <property name="connection.url">jdbc:mysql://organizer_ft.mysql.dbaas.com.br/organizer_ft?useTimezone=true&amp;serverTimezone=UTC</property>
@@ -16,15 +16,15 @@
         <property name="hibernate.connection.username">organizer_ft</property>
         <property name="hibernate.connection.password">FT12345</property>
         <property name="hibernate.c3p0.idle_test_period">1</property>
-        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.connection.pool_size">10</property>
         <property name="hibernate.c3p0.preferredTestQuery">select 1;</property>
         <property name="hibernate.c3p0.acquire_increment">3</property>
         <property name="hibernate.c3p0.timeout">25200</property>
         <property name="hibernate.c3p0.min_size">1</property>
-        <property name="hibernate.c3p0.max_size">1</property>
-        <property name="hibernate.c3p0.max_statements">0</property>
-        <property name="acquireRetryAttempts">1</property>
-        <property name="maxPoolSize">1</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.max_statements">5</property>
+        <property name="acquireRetryAttempts">5</property>
+        <property name="maxPoolSize">30</property>
         <property name="minPoolSize">1</property>
         <property name="c3p0.min_size">1</property>
         <mapping class="Models.ActionPlan"/>
