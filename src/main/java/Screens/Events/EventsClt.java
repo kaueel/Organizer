@@ -56,14 +56,10 @@ public class EventsClt extends Screen {
 
         meeting = (ObservableList<Meeting>) dataController.getAllObjectsOfType(Meeting.class);
 
-
-        if(getCurrentLawsuit() == null || getTypeOfLastSettedClass() != LawSuit.class)
-            btnNewClient.setDisable(true);
-
-
+        if(getCurrentLawsuit() != null && getTypeOfLastSettedClass() == LawSuit.class)
+            btnNewClient.setVisible(true);
 
         ArrayList<Integer> itensRemove = new ArrayList<Integer>();
-
 
         if(getTypeOfLastSettedClass() == Client.class && getCurrentClient() != null){
             int count = 0;
@@ -134,6 +130,7 @@ public class EventsClt extends Screen {
         if (click.getClickCount() == 2) {
             super.setTypeOfLastSettedClass(Meeting.class);
             super.setCurrentMeeting(meetingTable.getSelectionModel().getSelectedItem());
+            mainScreensController.showNewMainScreen("/Screens/Event/event.fxml");
         }
     }
 }

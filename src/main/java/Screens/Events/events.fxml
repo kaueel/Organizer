@@ -20,7 +20,7 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEventScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="New Event" GridPane.halignment="LEFT">
+                <Button fx:id="btnNewClient" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEventScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="New Event" visible="false" GridPane.halignment="LEFT">
                     <GridPane.margin>
                         <Insets right="40.0" />
                     </GridPane.margin>

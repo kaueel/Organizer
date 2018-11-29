@@ -1,6 +1,5 @@
 package Screens.Files;
 
-import Controllers.Config;
 import Controllers.DataController;
 import Controllers.Screen;
 import Controllers.TemplateCompile;
@@ -40,7 +39,7 @@ public class Files extends Screen {
     void initialize() {
 
 
-        String path = Config.getPropertyValue("pathFileStart");
+        String path = "C:/Organizer";
 
         comboTemplate.setDisable(true);
         createFileProcess.setDisable(true);
