@@ -58,6 +58,7 @@ public class LawSuit extends Screen {
 
     private void insertValidation() {
         LawSuitNumber.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
+        LawSuitClientDocument.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
     }
 
     @FXML
