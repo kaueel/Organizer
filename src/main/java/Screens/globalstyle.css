@@ -30,7 +30,7 @@
 
 .comboboxWhite{
     -fx-background-color: fff;
-    -fx-text-fill: black;
+    -fx-text-fill: #b3b3b3;
     -fx-opacity: 0.9;
     -fx-text-alignment: 'center';
     -fx-alignment: 'center';
