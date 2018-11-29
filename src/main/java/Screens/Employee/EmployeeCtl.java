@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,8 +50,31 @@ public class EmployeeCtl extends Screen {
     @FXML
     private PasswordField EmployeePasswordField;
 
+    private void insertValidation() {
+        EmployeeCpfField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(11));
+        EmployeePhoneField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(11));
+        EmployeeSalaryField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(null));
+    }
+
     @FXML
     void SaveEmployee(ActionEvent event) {
+        if(!Validation.isEveryInputFilled(
+                EmployeeCpfField.getText(),
+                EmployeePhoneField.getText(),
+                EmployeeNameField.getText(),
+                EmployeeUserNameField.getText(),
+                EmployeePasswordField.getText(),
+                EmployeePositionField.getText(),
+                EmployeeSalaryField.getText()
+        )){
+            Validation.showErrorDialog(
+                    "Oooops...",
+                    "Informações inválidas",
+                    "Parece que há alguma campo sem preencher, volte ao form para validar"
+            );
+            return;
+        }
+
         if (isNewEmployee){
             Employee employee = new Employee();
             Employee isDuplicate = null;
@@ -105,5 +129,7 @@ public class EmployeeCtl extends Screen {
             EmployeePhoneField.setText(super.getCurrentEmployee().getPhone());
             isNewEmployee = false;
         }
+
+        insertValidation();
     }
 }
