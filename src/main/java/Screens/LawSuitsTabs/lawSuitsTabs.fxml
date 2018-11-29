@@ -9,13 +9,14 @@
         <TabPane layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="573.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab text="Andamento">
-                    <fx:include source="../LawSuit/lawSuit.fxml" />
+                    <fx:include source="../LawSuitComments/lawSuitComments.fxml" />
                 </Tab>
                 <Tab text="Eventos">
                 </Tab>
                 <Tab text="Arquivos">
                 </Tab>
                 <Tab text="Detalhes">
+                    <fx:include source="../LawSuit/lawSuit.fxml" />
                 </Tab>
             </tabs>
         </TabPane>
