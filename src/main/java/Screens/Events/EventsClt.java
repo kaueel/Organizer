@@ -15,7 +15,6 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -126,11 +125,10 @@ public class EventsClt extends Screen {
     }
 
     @FXML
-    void callEditMeeting(MouseEvent click) {
-        if (click.getClickCount() == 2) {
+    void callEditMeeting() {
             super.setTypeOfLastSettedClass(Meeting.class);
             super.setCurrentMeeting(meetingTable.getSelectionModel().getSelectedItem());
             mainScreensController.showNewMainScreen("/Screens/Event/event.fxml");
-        }
+
     }
 }

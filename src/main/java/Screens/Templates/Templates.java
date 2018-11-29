@@ -4,8 +4,6 @@ import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.DocumentTemplates;
-import Models.Employee;
-import Models.LawSuit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -75,16 +73,16 @@ public class Templates extends Screen {
 
     @FXML
     void callDocumentTemplatesScreen() {
-        super.setCurrentdocumentTemplates(null);
+        setCurrentdocumentTemplates(null);
         mainScreensController.showNewMainScreen("/Screens/Template/template.fxml");
     }
 
     @FXML
     void setCurrentDocumentTemplates(MouseEvent click) {
-        if (click.getClickCount() == 2) {
+        if (click.getClickCount() == 1) {
             DocumentTemplates selectedDocumentTemplates = documentTemplatesTable.getSelectionModel().getSelectedItem();
             if (selectedDocumentTemplates != null) {
-                super.setCurrentdocumentTemplates(selectedDocumentTemplates);
+                setCurrentdocumentTemplates(selectedDocumentTemplates);
                 mainScreensController.showNewMainScreen("/Screens/Template/template.fxml");
             }
         }
