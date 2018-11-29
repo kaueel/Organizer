@@ -65,9 +65,11 @@ public class EmployeesCtl extends Screen {
 
     @FXML
     void setCurrentEmployee() {
-        super.setTypeOfLastSettedClass(Employee.class);
-        super.setCurrentEmployee(employeesTable.getSelectionModel().getSelectedItem());
-        mainScreensController.showNewMainScreen("/Screens/Employee/employee.fxml");
+        if(employeesTable.getSelectionModel().getSelectedItem() != null) {
+            super.setTypeOfLastSettedClass(Employee.class);
+            super.setCurrentEmployee(employeesTable.getSelectionModel().getSelectedItem());
+            mainScreensController.showNewMainScreen("/Screens/EmployeeTabs/employeeTabs.fxml");
+        }
     }
 
     @FXML

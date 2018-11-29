@@ -22,6 +22,9 @@ public class TemplateHashVariables extends Screen{
         if(getCurrentLawsuit().getClientByClientId() == null)
             getCurrentLawsuit().setClientByClientId(new Client());
 
+        if(getCurrentLawsuit().getEmployeeByEmployee() == null)
+            getCurrentLawsuit().setEmployeeByEmployee(new Employee());
+
         if(getCurrentLawsuit().getClientByClientId().getAddressByAddressId() == null)
             getCurrentLawsuit().getClientByClientId().setAddressByAddressId(new Address());
 
@@ -43,11 +46,22 @@ public class TemplateHashVariables extends Screen{
         functions.put("EstadoCliente", getCurrentLawsuit().getClientByClientId().getAddressByAddressId().getStateByStateId()::getState);
         functions.put("DataPorExtenso", this::unabbreviatedDate);
         functions.put("DataPorExtensoComDiaDaSemana", this::unabbreviatedDateWithDayOfWeek);
+        functions.put("NumeroProcesso", getCurrentLawsuit()::getNumber);
+        functions.put("TituloProcesso", getCurrentLawsuit()::getTitle);
+        functions.put("DocumentoParteContrariaProcesso", getCurrentLawsuit()::getOppositeDocument);
+        functions.put("NomeParteContrariaProcesso", getCurrentLawsuit()::getOppositeName);
+        functions.put("TipoProcesso", getCurrentLawsuit()::getType);
+        functions.put("VaraProcesso", getCurrentLawsuit()::getCourt);
+        functions.put("ForumProcesso", getCurrentLawsuit()::getForum);
+        functions.put("DescricaoProcesso", getCurrentLawsuit()::getDescription);
+        functions.put("NomeFuncionario", getCurrentLawsuit().getEmployeeByEmployee()::getName);
+        functions.put("DocumentoFuncionario", getCurrentLawsuit().getEmployeeByEmployee()::getCpf);
+
 
     }
 
     public  String unabbreviatedDateWithDayOfWeek() {
-        return unabbreviatedDate(new Date());
+        return unabbreviatedDateWithDayOfWeek(new Date());
     }
 
     public  String unabbreviatedDateWithDayOfWeek(Date data){
@@ -56,7 +70,7 @@ public class TemplateHashVariables extends Screen{
     }
 
     public  String unabbreviatedDate() {
-        return unabbreviatedDateWithDayOfWeek(new Date());
+        return unabbreviatedDate(new Date());
     }
 
     public  String unabbreviatedDate(Date data){
