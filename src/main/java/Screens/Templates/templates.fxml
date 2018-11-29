@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="504.0" prefWidth="710.0" style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Templates.Templates">
+<AnchorPane prefHeight="504.0" prefWidth="710.0" style="-fx-background-color: fff;" styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Templates.Templates">
     <children>
         <GridPane style="-fx-background-color: fff;" stylesheets="@templates.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
             <columnConstraints>
@@ -25,12 +25,12 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewTemplate" mnemonicParsing="false" onAction="#callDocumentTemplatesScreen" prefHeight="25.0" prefWidth="99.0" text="Novo template" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                <Button fx:id="btnNewTemplate" mnemonicParsing="false" onAction="#callDocumentTemplatesScreen" prefHeight="25.0" prefWidth="148.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="Novo template" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
                     <GridPane.margin>
-                        <Insets right="40.0" />
+                        <Insets right="20.0" />
                     </GridPane.margin>
                 </Button>
-                <TableView fx:id="documentTemplatesTable" onMouseClicked="#setCurrentDocumentTemplates" GridPane.columnSpan="5" GridPane.rowIndex="1">
+                <TableView fx:id="documentTemplatesTable" onMouseClicked="#setCurrentDocumentTemplates" stylesheets="@../globalstyle.css" GridPane.columnSpan="5" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="rowDocumentTemplateName" minWidth="-1.0" prefWidth="449.0" text="Nome" />
                         <TableColumn fx:id="rowDocumentTemplateLastUpdate" maxWidth="229.0" minWidth="229.0" prefWidth="229.0" resizable="false" style="-fx-alignment: CENTER-CENTER;" text="Ultima atualização" />
