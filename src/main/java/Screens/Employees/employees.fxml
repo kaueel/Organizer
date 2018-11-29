@@ -22,7 +22,7 @@
                 <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="btnNewEmployee" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEmployeeScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="New Employee" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                <Button fx:id="btnNewEmployee" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#callEmployeeScreen" prefHeight="25.0" prefWidth="115.0" styleClass="buttonWhite" stylesheets="@../globalstyle.css" text="Novo funcionário" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                     <GridPane.margin>
                         <Insets right="40.0" />
                     </GridPane.margin>
