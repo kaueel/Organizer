@@ -4,6 +4,7 @@ import Controllers.DataController;
 import Controllers.MainScreensController;
 import Controllers.Screen;
 import Models.Employee;
+import Utils.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class EmployeeCtl extends Screen {
     private MainScreensController mainScreensController = MainScreensController.getInstance();
     private DataController mDataController = DataController.getInstance();
+    private boolean isNewEmployee = true;
     @FXML
     private ResourceBundle resources;
 
@@ -49,18 +51,41 @@ public class EmployeeCtl extends Screen {
 
     @FXML
     void SaveEmployee(ActionEvent event) {
+        if (isNewEmployee){
+            Employee employee = new Employee();
+            Employee isDuplicate = null;
+            try {
+                isDuplicate = (Employee) mDataController.getObjectWithValue(Employee.class, "cpf", EmployeeCpfField.getText().toString());
 
-        Employee employee = new Employee();
-        employee.setCpf(EmployeeCpfField.getText());
-        employee.setName(EmployeeNameField.getText());
-        employee.setLogin(EmployeeUserNameField.getText());
-        employee.setToken(EmployeePasswordField.getText());
-        employee.setPosition(EmployeePositionField.getText());
-        employee.setSalary(EmployeeSalaryField.getText());
-        employee.setPhone(EmployeePhoneField.getText());
-        employee.setAccessLevel(1);
-        mDataController.saveObject(employee);
-        callEmployeesScreen();
+            }catch (Exception e){
+
+            }
+            if (isDuplicate == null){
+            employee.setCpf(EmployeeCpfField.getText());
+            employee.setName(EmployeeNameField.getText());
+            employee.setLogin(EmployeeUserNameField.getText());
+            employee.setToken(EmployeePasswordField.getText());
+            employee.setPosition(EmployeePositionField.getText());
+            employee.setSalary(EmployeeSalaryField.getText());
+            employee.setPhone(EmployeePhoneField.getText());
+            employee.setAccessLevel(1);
+            mDataController.saveObject(employee);
+            callEmployeesScreen();}
+            else {
+                Validation.showErrorDialog("CPF ja cadastrado", "CPF ja cadastrado", "");
+            }
+        }else{
+            super.getCurrentEmployee().setCpf(EmployeeCpfField.getText());
+            super.getCurrentEmployee().setName(EmployeeNameField.getText());
+            super.getCurrentEmployee().setLogin(EmployeeUserNameField.getText());
+            super.getCurrentEmployee().setToken(EmployeePasswordField.getText());
+            super.getCurrentEmployee().setPosition(EmployeePositionField.getText());
+            super.getCurrentEmployee().setSalary(EmployeeSalaryField.getText());
+            super.getCurrentEmployee().setPhone(EmployeePhoneField.getText());
+            super.getCurrentEmployee().setAccessLevel(1);
+            mDataController.updateObject(super.getCurrentEmployee());
+            callEmployeesScreen();
+        }
     }
 
     @FXML
@@ -78,9 +103,7 @@ public class EmployeeCtl extends Screen {
             EmployeePositionField.setText(super.getCurrentEmployee().getPosition());
             EmployeeNameField.setText(super.getCurrentEmployee().getName());
             EmployeePhoneField.setText(super.getCurrentEmployee().getPhone());
-
-
+            isNewEmployee = false;
         }
-
     }
 }
