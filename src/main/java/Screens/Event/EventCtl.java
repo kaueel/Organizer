@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -108,7 +109,11 @@ public class EventCtl extends Screen {
             Validation.showErrorDialog("Erro!", "Erro desconhecido", ex.toString());
         }
 
+        insertValidation();
+    }
 
+    private void insertValidation() {
+        EventHoraField.addEventFilter(KeyEvent.KEY_TYPED, Validation.numericValidation(2));
     }
 
 
