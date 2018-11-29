@@ -77,7 +77,7 @@ public class ClientCtl extends Screen {
 
     @FXML
     void SaveClient(ActionEvent event) {
-        if(ClientCpfField.getText().length() != 11 || ClientCpfField.getText().length() != 14) {
+        if(ClientCpfField.getText().length() != 11 && ClientCpfField.getText().length() != 14) {
             Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
             dialogoErro.setTitle("Erro!");
             dialogoErro.setHeaderText("CPF/CNPJ inválido!");
