@@ -68,7 +68,7 @@ public class Address {
     }
 
     @Basic
-    @Column(name = "District", nullable = false, length = 20)
+    @Column(name = "District", nullable = false, length = 50)
     public String getDistrict() {
         return district;
     }
