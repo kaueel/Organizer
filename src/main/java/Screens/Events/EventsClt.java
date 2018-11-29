@@ -10,10 +10,7 @@ import Models.Meeting;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -50,6 +47,9 @@ public class EventsClt extends Screen {
 
     @FXML
     private TableView<Meeting> meetingTable;
+
+    @FXML
+    private TextField searchfield;
 
     @FXML
     void initialize() {
@@ -91,9 +91,6 @@ public class EventsClt extends Screen {
             meeting.remove((int)itensRemove.get(i));
         }
 
-
-
-
         rowEventSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
         rowClientName.setCellValueFactory(new PropertyValueFactory<>("clientByClientId"));
         rowLawSuitTitle.setCellValueFactory(new PropertyValueFactory<>("lawSuitByLawSuitId"));
@@ -132,5 +129,24 @@ public class EventsClt extends Screen {
             super.setCurrentMeeting(meetingTable.getSelectionModel().getSelectedItem());
             mainScreensController.showNewMainScreen("/Screens/Event/event.fxml");
         }
+    }
+
+    @FXML
+    void search() {
+        String chave = searchfield.getText().toUpperCase();
+        ObservableList<Meeting> meetingPesquisa = FXCollections.observableArrayList();
+
+        if (!chave.isEmpty()) {
+            for (Meeting met : meeting) {
+                if (met.getSubject().toUpperCase().contains(chave) || met.getClientByClientId().getName().toUpperCase().contains(chave)
+                        || met.getLawSuitByLawSuitId().getTitle().toUpperCase().contains(chave) || met.getLocal().toUpperCase().contains(chave)
+                        || met.getStartTime().toString().toUpperCase().contains(chave))
+                    meetingPesquisa.add(met);
+            }
+        }else{
+            meetingPesquisa.addAll(meeting);
+        }
+
+        meetingTable.setItems(meetingPesquisa);
     }
 }
