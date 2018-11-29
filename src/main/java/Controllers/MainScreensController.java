@@ -42,6 +42,11 @@ public class MainScreensController extends Observable {
         titlesMap.put("/Screens/Client/client.fxml", "Cliente");
         titlesMap.put("/Screens/Employee/employee.fxml", "Funcionario");
         titlesMap.put("/Screens/ClientTabs/clientTabs.fxml", "Cliente");
+        titlesMap.put("/Screens/Events/events.fxml", "Eventos");
+        titlesMap.put("/Screens/Event/event.fxml", "Evento");
+        titlesMap.put("/Screens/EmployeeTabs/employeeTabs.fxml", "Funcionario");
+        titlesMap.put("/Screens/LawSuitsTabs/lawSuitsTabs.fxml", "Processo");
+
 
     }
 

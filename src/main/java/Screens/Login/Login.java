@@ -36,8 +36,8 @@ public class Login extends Screen {
         for (Employee employee : employeesList) {
             if ((loginText.equals(employee.getLogin()))) {
                 if (pwdText.equals(employee.getToken())) {
-                    mainScreensController.showNewMainScreen("/Screens/Employees/employees.fxml");
                     mainScreensController.showNewLeftScreen("/Screens/Menu/menu.fxml");
+                    mainScreensController.showNewMainScreen("/Screens/Clients/clients.fxml");
                 }
 
             } else {

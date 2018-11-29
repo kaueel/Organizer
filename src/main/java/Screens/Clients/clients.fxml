@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane styleClass="whiteframe,background-white" stylesheets="@../globalstyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Clients.ClientsClt">
+<AnchorPane styleClass="background-white" stylesheets="@../globalstyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Clients.ClientsClt">
     <children>
         <GridPane style="-fx-background-color: fff;" stylesheets="@clients.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
             <columnConstraints>

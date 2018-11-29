@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: fff;"
-            styleClass="whiteframe,background-white" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            styleClass="background-white" xmlns="http://javafx.com/javafx/8.0.172-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screens.Employees.EmployeesCtl">
     <children>
         <GridPane prefWidth="1050.0" style="-fx-background-color: fff;" stylesheets="@../globalstyle.css" vgap="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
